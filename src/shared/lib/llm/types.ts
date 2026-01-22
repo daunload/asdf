@@ -23,7 +23,7 @@ export interface Card {
 }
 
 export interface LLMRequest {
-	chartData: any; // 출생차트 데이터
+	chartData: string[]; // 출생차트 데이터
 	topicId: string;
 	topicName: string;
 	isTimeUnknown: boolean;

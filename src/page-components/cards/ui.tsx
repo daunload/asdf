@@ -149,6 +149,15 @@ export function CardsPage() {
 	const hasPrev = currentIndex > 0;
 	const hasNext = currentIndex < totalCards - 1;
 
+	// Helper function to safely get paid topic name
+	const getPaidTopicName = (index: number): string => {
+		const paidIndex = index - cards.length;
+		if (paidIndex < 0 || paidIndex >= paidTopics.length) {
+			return 'Premium Topic';
+		}
+		return paidTopics[paidIndex]?.name || 'Premium Topic';
+	};
+
 	// Get previous and next cards for carousel
 	const prevCard = hasPrev
 		? currentIndex - 1 < cards.length
@@ -229,12 +238,9 @@ export function CardsPage() {
 										/>
 									) : (
 										<LockedCard
-											topicName={
-												paidTopics[
-													currentIndex - 1 -
-														cards.length
-												].name
-											}
+											topicName={getPaidTopicName(
+												currentIndex - 1,
+											)}
 											currentIndex={currentIndex - 1}
 											totalCount={totalCards}
 											isBlurred={true}
@@ -263,11 +269,9 @@ export function CardsPage() {
 										/>
 									) : (
 										<LockedCard
-											topicName={
-												paidTopics[
-													currentIndex - cards.length
-												].name
-											}
+											topicName={getPaidTopicName(
+												currentIndex,
+											)}
 											currentIndex={currentIndex}
 											totalCount={totalCards}
 											onUnlock={handleUnlock}
@@ -300,12 +304,9 @@ export function CardsPage() {
 										/>
 									) : (
 										<LockedCard
-											topicName={
-												paidTopics[
-													currentIndex + 1 -
-														cards.length
-												].name
-											}
+											topicName={getPaidTopicName(
+												currentIndex + 1,
+											)}
 											currentIndex={currentIndex + 1}
 											totalCount={totalCards}
 											isBlurred={true}

@@ -5,6 +5,46 @@ import { generateCards } from '@/shared/lib/llm/client';
 import { getTopicById, topics } from '@/shared/config/topics';
 import type { LLMRequest } from '@/shared/lib/llm/types';
 
+// 지오코딩 함수: 주소를 위도/경도로 변환
+async function geocodeAddress(
+	address: string,
+): Promise<{ lat: number; lon: number }> {
+	try {
+		const response = await fetch(
+			`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(address)}&format=json&limit=1`,
+			{
+				headers: {
+					'User-Agent': 'AstrologyApp/1.0',
+				},
+			},
+		);
+
+		if (!response.ok) {
+			throw new Error('지오코딩 API 요청 실패');
+		}
+
+		const data = await response.json();
+
+		if (!data || data.length === 0) {
+			throw new Error(`주소를 찾을 수 없습니다: ${address}`);
+		}
+
+		const lat = parseFloat(data[0].lat);
+		const lon = parseFloat(data[0].lon);
+
+		if (isNaN(lat) || isNaN(lon)) {
+			throw new Error('유효하지 않은 좌표값');
+		}
+
+		return { lat, lon };
+	} catch (error) {
+		console.error('지오코딩 오류:', error);
+		throw new Error(
+			`주소를 좌표로 변환할 수 없습니다: ${error instanceof Error ? error.message : '알 수 없는 오류'}`,
+		);
+	}
+}
+
 export async function POST(request: NextRequest) {
 	try {
 		// 요청 본문에서 주제 ID 배열 읽기
@@ -48,14 +88,32 @@ export async function POST(request: NextRequest) {
 			);
 		}
 
+		// 주소를 위도/경도로 변환
+		let coordinates;
+		try {
+			coordinates = await geocodeAddress(birthPlace);
+		} catch (error) {
+			console.error('지오코딩 오류:', error);
+			return NextResponse.json(
+				{
+					error: error instanceof Error ? error.message : '주소 변환 중 오류가 발생했습니다.',
+					code: 'GEOCODING_ERROR',
+					retry: true,
+				},
+				{ status: 500 },
+			);
+		}
+
+		// ISO 날짜 문자열 생성
+		const isTimeUnknown = birthTime === 'unknown';
+		const isoDateTime = isTimeUnknown
+			? `${birthDate}T12:00:00+09:00` // 시간 모를 경우 정오 기준
+			: `${birthDate}T${birthTime}:00+09:00`;
+
 		// 출생차트 계산
 		let chartData;
 		try {
-			chartData = calculateChart({
-				birthDate,
-				birthTime,
-				birthPlace,
-			});
+			chartData = calculateChart(isoDateTime, coordinates.lat, coordinates.lon);
 		} catch (error) {
 			console.error('차트 계산 오류:', error);
 			return NextResponse.json(
@@ -79,7 +137,7 @@ export async function POST(request: NextRequest) {
 				chartData,
 				topicId: topic.id,
 				topicName: topic.name,
-				isTimeUnknown: chartData.isTimeUnknown,
+				isTimeUnknown,
 			};
 		});
 

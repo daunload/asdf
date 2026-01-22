@@ -10,31 +10,9 @@ import type { LLMRequest } from './types';
 export function createPrompt(request: LLMRequest): string {
 	const { chartData, topicId, topicName, isTimeUnknown } = request;
 
-	// 차트 데이터 요약 (주요 정보만 추출)
-	const sunSign =
-		chartData.horoscope?.celestialBodies?.sun?.Sign?.label || '알 수 없음';
-	const ascendant =
-		chartData.horoscope?.angles?.ascendant?.Sign?.label || '알 수 없음';
-	const moonSign =
-		chartData.horoscope?.celestialBodies?.moon?.Sign?.label || '알 수 없음';
-
-	// 시간 모름 처리 안내
-	const timeUnknownNote = isTimeUnknown
-		? '\n\n⚠️ 중요: 출생 시간을 모르는 경우이므로, 시간에 의존적인 해석(예: 하우스 위치, 상승궁 정확도)은 제한적이거나 근사치로 제공해야 합니다. 이 점을 명시하거나 일반적인 해석에 집중하세요.'
-		: '';
-
-	// 출생 시간 문자열 생성
-	const birthTimeStr = isTimeUnknown
-		? '알 수 없음 (기본값 12:00 사용)'
-		: `${chartData.origin.hour}:${String(chartData.origin.minute).padStart(2, '0')}`;
-
 	const prompt = `당신은 전문적인 점성술 해석가입니다. 다음 출생차트 정보를 바탕으로 "${topicName}" 주제에 대한 해석을 제공해주세요.
         **출생차트 정보:**
-        - 태양궁: ${sunSign}
-        - 상승궁: ${ascendant}
-        - 달궁: ${moonSign}
-        - 출생 시간: ${birthTimeStr}
-        - 출생 장소: 위도 ${chartData.origin.latitude}, 경도 ${chartData.origin.longitude}${timeUnknownNote}
+        ${chartData.join('\n')}
 
         **요청 주제:** ${topicName}
 
