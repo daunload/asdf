@@ -78,7 +78,7 @@ export function Header() {
 							>
 								로그인
 							</Link>
-							<button className="bg-primary hover:bg-primary/80 transition-all text-white text-sm font-bold px-6 py-2 rounded-lg shadow-lg shadow-primary/20">
+							<button className="bg-linear-to-r from-[#7c3aed] to-[#06b6d4] hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all text-white text-sm font-bold px-6 py-2 rounded-lg shadow-lg">
 								시작하기
 							</button>
 						</>

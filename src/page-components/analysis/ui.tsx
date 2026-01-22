@@ -70,7 +70,7 @@ export function AnalysisPage() {
 							</span>
 							<span className="text-sm font-bold">공유하기</span>
 						</button>
-						<button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white hover:brightness-110 shadow-lg shadow-primary/20 transition-all">
+						<button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-linear-to-r from-[#7c3aed] to-[#06b6d4] text-white hover:brightness-110 shadow-lg shadow-[#7c3aed]/20 transition-all">
 							<span className="material-symbols-outlined text-xl">
 								file_download
 							</span>
@@ -273,7 +273,7 @@ export function AnalysisPage() {
 
 						{/* Interaction Buttons */}
 						<div className="mt-4 flex gap-4">
-							<button className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all">
+							<button className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-[#7c3aed] text-[#7c3aed] font-bold hover:bg-[#7c3aed] hover:text-white transition-all shadow-[0_0_15px_rgba(124,58,237,0.2)] hover:shadow-[0_0_25px_rgba(124,58,237,0.4)]">
 								<span className="material-symbols-outlined">
 									chat
 								</span>

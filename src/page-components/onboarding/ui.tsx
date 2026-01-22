@@ -180,7 +180,7 @@ export function OnboardingPage() {
 
 						<div className="pt-4">
 							<button
-								className="w-full h-16 bg-primary hover:bg-primary/90 text-white text-lg font-bold rounded-xl shadow-xl shadow-primary/30 transition-all transform hover:scale-[1.01] flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed"
+								className="w-full h-16 bg-linear-to-r from-[#7c3aed] to-[#06b6d4] text-white text-lg font-bold rounded-xl shadow-[0_0_20px_rgba(124,58,237,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] transition-all transform hover:scale-[1.01] flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed"
 								type="submit"
 								disabled={isSubmitting}
 							>

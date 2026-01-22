@@ -27,12 +27,12 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 					'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neon-lime',
 					'disabled:pointer-events-none disabled:opacity-50',
 					{
-						// Default: Celestial Gradient Background + Glow
-						'bg-linear-to-r from-celestial-violet to-celestial-blue text-white shadow-[0_0_20px_rgba(124,58,237,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] hover:scale-105 active:scale-95':
+						// Default: Modern Vibrant Gradient (Violet -> Cyan)
+						'bg-linear-to-r from-[#7c3aed] to-[#06b6d4] text-white shadow-[0_0_20px_rgba(124,58,237,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] hover:scale-[1.02] active:scale-[0.98] border border-transparent':
 							variant === 'default',
 
 						// Outline: Gradient Border Effect
-						'bg-transparent text-white border border-celestial-blue/50 hover:border-celestial-blue hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:bg-celestial-blue/10':
+						'bg-transparent text-white border border-[#06b6d4]/50 hover:border-[#06b6d4] hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] hover:bg-[#06b6d4]/10':
 							variant === 'outline',
 
 						// Ghost: Simple hover

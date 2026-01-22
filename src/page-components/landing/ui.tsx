@@ -37,7 +37,7 @@ export function LandingPage() {
 					<div className="flex flex-col items-center gap-6">
 						<Link
 							href="/onboarding"
-							className="inline-flex items-center justify-center gap-3 w-full max-w-md h-20 bg-primary hover:bg-primary/90 text-white text-xl font-bold rounded-xl shadow-2xl shadow-primary/40 group transition-all transform hover:scale-[1.02]"
+							className="inline-flex items-center justify-center gap-3 w-full max-w-md h-20 rounded-xl text-white text-xl font-bold transition-all transform hover:scale-[1.02] bg-linear-to-r from-[#7c3aed] to-[#06b6d4] shadow-[0_0_20px_rgba(124,58,237,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)]"
 						>
 							<span>내 출생 차트 분석하기</span>
 							<span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
