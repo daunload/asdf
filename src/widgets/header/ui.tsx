@@ -2,16 +2,23 @@
 
 import { useSession, signOut } from 'next-auth/react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 export function Header() {
 	const { data: session, status } = useSession();
-	const router = useRouter(); // kept for potential future use
+	const router = useRouter();
+	const pathname = usePathname();
 	const isLoading = status === 'loading';
 	const isAuthenticated = !!session;
+	const isCardsPage = pathname === '/cards';
 
 	const handleSignOut = async () => {
 		await signOut({ callbackUrl: '/' });
+	};
+
+	const handleSaveAnalysis = () => {
+		// Save analysis functionality
+		console.log('Save analysis');
 	};
 
 	return (
@@ -32,55 +39,66 @@ export function Header() {
 						className="text-white/80 hover:text-accent-gold text-sm font-medium transition-colors"
 						href="/analysis"
 					>
-						출생 차트
+						Birth Charts
 					</Link>
 					<Link
 						className="text-white/80 hover:text-accent-gold text-sm font-medium transition-colors"
 						href="#"
 					>
-						운세 리포트
+						Transit Reports
 					</Link>
 					<Link
 						className="text-white/80 hover:text-accent-gold text-sm font-medium transition-colors"
 						href="#"
 					>
-						궁합
+						Compatibility
 					</Link>
 					<Link
 						className="text-white/80 hover:text-accent-gold text-sm font-medium transition-colors"
 						href="#"
 					>
-						소개
+						About
 					</Link>
 				</nav>
 				<div className="flex items-center gap-4">
-					{isLoading ? (
-						<div className="h-9 w-20 animate-pulse rounded-md bg-white/10" />
-					) : isAuthenticated ? (
-						<>
-							<span className="text-sm text-white/60 hidden sm:inline-block">
-								{session.user?.name ||
-									session.user?.email ||
-									'User'}
-							</span>
-							<button
-								onClick={handleSignOut}
-								className="text-white text-sm font-medium px-4 py-2 hover:text-white/80 transition-colors"
-							>
-								로그아웃
-							</button>
-						</>
+					{isCardsPage ? (
+						<button
+							onClick={handleSaveAnalysis}
+							className="rounded-md bg-[#2A2D38] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#3A3D48]"
+						>
+							Save Analysis
+						</button>
 					) : (
 						<>
-							<Link
-								href="/auth/login"
-								className="text-white text-sm font-medium px-4 py-2"
-							>
-								로그인
-							</Link>
-							<button className="bg-linear-to-r from-[#7c3aed] to-[#06b6d4] hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all text-white text-sm font-bold px-6 py-2 rounded-lg shadow-lg">
-								시작하기
-							</button>
+							{isLoading ? (
+								<div className="h-9 w-20 animate-pulse rounded-md bg-white/10" />
+							) : isAuthenticated ? (
+								<>
+									<span className="text-sm text-white/60 hidden sm:inline-block">
+										{session.user?.name ||
+											session.user?.email ||
+											'User'}
+									</span>
+									<button
+										onClick={handleSignOut}
+										className="text-white text-sm font-medium px-4 py-2 hover:text-white/80 transition-colors"
+									>
+										로그아웃
+									</button>
+								</>
+							) : (
+								<>
+									<Link
+										href="/auth/login"
+										className="text-white text-sm font-medium px-4 py-2"
+									>
+										로그인
+									</Link>
+									<button className="bg-linear-to-r from-[#7c3aed] to-[#06b6d4] hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all text-white text-sm font-bold px-6 py-2 rounded-lg shadow-lg">
+										시작하기
+									</button>
+								</>
+							)}
 						</>
 					)}
 				</div>

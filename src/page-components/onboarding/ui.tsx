@@ -19,7 +19,7 @@ export function OnboardingPage() {
 		// Simulate submission and navigation
 		setTimeout(() => {
 			setIsSubmitting(false);
-			router.push('/analysis');
+			router.push('/cards');
 		}, 1500);
 	};
 

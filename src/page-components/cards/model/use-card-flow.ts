@@ -72,6 +72,12 @@ export function useCardFlow() {
 		}
 	}, [currentIndex, cards.length]);
 
+	const handlePrev = useCallback(() => {
+		if (currentIndex > 0) {
+			setCurrentIndex((prev) => prev - 1);
+		}
+	}, [currentIndex]);
+
 	const handleRetry = useCallback(() => {
 		window.location.reload();
 	}, []);
@@ -93,6 +99,7 @@ export function useCardFlow() {
 		isLoading,
 		error,
 		handleNext,
+		handlePrev,
 		handleRetry,
 		handleUnlock,
 		handleReturnToOnboarding,

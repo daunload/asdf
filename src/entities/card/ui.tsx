@@ -21,9 +21,40 @@ export interface CardProps {
 	currentIndex: number;
 	totalCount: number;
 	onNext?: () => void;
+	onPrev?: () => void;
 	showNextButton?: boolean;
+	isBlurred?: boolean;
 	className?: string;
 }
+
+// 카테고리 매핑 (주제 ID에 따라)
+const getCategory = (topicId: string): string => {
+	const categoryMap: Record<string, string> = {
+		'personality-core': 'CORE ESSENCE',
+		'first-impression': 'EXTERNAL IMAGE',
+		'talents-strengths': 'STRENGTHS',
+		'challenges-growth': 'GROWTH',
+	};
+	return categoryMap[topicId] || 'INSIGHT';
+};
+
+// 태그 생성 (주제에 따라)
+const getTags = (topicId: string, body: string): string[] => {
+	// 간단한 키워드 추출 로직 (실제로는 더 정교하게 구현 가능)
+	const tags: string[] = [];
+	if (topicId.includes('personality')) {
+		tags.push('Creative Vitality', 'Fixed Fire', 'Fifth House');
+	} else if (topicId.includes('first-impression')) {
+		tags.push('First Impression', 'External Image', 'Ascendant');
+	} else if (topicId.includes('talents')) {
+		tags.push('Natural Talent', 'Strengths', 'Abilities');
+	} else if (topicId.includes('challenges')) {
+		tags.push('Growth', 'Challenges', 'Opportunities');
+	} else {
+		tags.push('Insight', 'Wisdom', 'Guidance');
+	}
+	return tags;
+};
 
 export function Card({
 	card,
@@ -31,63 +62,87 @@ export function Card({
 	currentIndex,
 	totalCount,
 	onNext,
+	onPrev,
 	showNextButton = true,
+	isBlurred = false,
 	className,
 }: CardProps) {
+	const category = getCategory(card.topicId);
+	const tags = getTags(card.topicId, card.body);
+	const hasPrev = onPrev !== undefined;
+	const hasNext = onNext !== undefined;
+
 	return (
 		<article
 			className={cn(
-				'flex min-h-[400px] flex-col items-center justify-center space-y-6 rounded-2xl p-8',
-				'border border-transparent bg-clip-border',
-				'shadow-[0_0_30px_rgba(124,58,237,0.15)] transition-transform duration-300 hover:scale-[1.02]',
+				'relative flex h-[600px] flex-col rounded-3xl p-8 sm:p-10',
+				'bg-[#393C48] border-2',
+				'transition-opacity duration-300',
+				isBlurred
+					? 'opacity-50'
+					: 'shadow-[0_0_40px_rgba(255,215,0,0.3)]',
 				className,
 			)}
 			style={{
-				background: `
-					linear-gradient(#020617, #020617) padding-box,
-					linear-gradient(to bottom right, var(--celestial-violet), var(--celestial-blue)) border-box
-				`,
+				borderColor: isBlurred
+					? 'rgba(255, 215, 0, 0.2)'
+					: 'rgba(255, 215, 0, 0.5)',
+				boxShadow: isBlurred
+					? 'none'
+					: '0 0 30px rgba(255, 215, 0, 0.2), inset 0 0 30px rgba(255, 215, 0, 0.05)',
 			}}
 			role="article"
 			aria-label={`${topicName || '카드'} ${currentIndex + 1}번째`}
 		>
-			{/* 심볼 */}
-			<div
-				className="text-6xl drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
-				aria-hidden="true"
-			>
-				{card.symbol}
+			{/* Icon */}
+			<div className="mb-6 flex justify-center">
+				<div
+					className="text-7xl sm:text-8xl"
+					style={{
+						filter: isBlurred
+							? 'none'
+							: 'drop-shadow(0 0 20px rgba(255, 215, 0, 0.6))',
+						color: '#FFD700',
+					}}
+					aria-hidden="true"
+				>
+					{card.symbol}
+				</div>
 			</div>
 
-			{/* 주제명 (선택) */}
+			{/* Category */}
+			<div className="mb-2 text-center">
+				<p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+					{category}
+				</p>
+			</div>
+
+			{/* Title */}
 			{topicName && (
-				<h2 className="text-xl font-bold text-white drop-shadow-md">
+				<h2 className="mb-6 text-center text-2xl font-bold text-white sm:text-3xl">
 					{topicName}
 				</h2>
 			)}
 
-			{/* 본문 (1~2문장) */}
-			<p className="text-center text-base leading-relaxed text-zinc-300">
-				{card.body}
-			</p>
-
-			{/* 진행 표시 (선택) */}
-			<div className="text-sm text-zinc-500">
-				{currentIndex + 1} / {totalCount}
+			{/* Description */}
+			<div className="mb-6 flex-1 overflow-y-auto">
+				<p className="text-center text-base italic leading-relaxed text-white sm:text-lg">
+					{card.body}
+				</p>
 			</div>
 
-			{/* CTA 버튼 */}
-			{showNextButton && onNext && (
-				<Button
-					onClick={onNext}
-					size="lg"
-					variant="default"
-					className="min-h-[44px] min-w-[120px]"
-					aria-label={`다음 카드 보기 (${currentIndex + 2}번째)`}
-				>
-					{card.cta || '다음 카드'}
-				</Button>
-			)}
+			{/* Tags */}
+			<div className="mb-6 flex flex-wrap justify-center gap-2">
+				{tags.map((tag, idx) => (
+					<span
+						key={idx}
+						className="rounded-full bg-[#2A2D38] px-4 py-2 text-xs font-medium text-white"
+					>
+						{tag}
+					</span>
+				))}
+			</div>
+
 		</article>
 	);
 }
@@ -102,6 +157,7 @@ export interface LockedCardProps {
 	onNext?: () => void;
 	onUnlock?: () => void;
 	showNextButton?: boolean;
+	isBlurred?: boolean;
 	className?: string;
 }
 
@@ -112,85 +168,76 @@ export function LockedCard({
 	onNext,
 	onUnlock,
 	showNextButton = true,
+	isBlurred = false,
 	className,
 }: LockedCardProps) {
+	const hasNext = onNext !== undefined;
+
 	return (
 		<article
 			className={cn(
-				'relative flex min-h-[400px] flex-col items-center justify-center space-y-6 rounded-2xl p-8',
-				'overflow-hidden border border-white/10 bg-black/80',
-				'shadow-[0_0_20px_rgba(124,58,237,0.1)]',
+				'relative flex h-[600px] flex-col items-center justify-center rounded-3xl p-8 sm:p-10',
+				'overflow-hidden border-2 bg-[#393C48]/50 backdrop-blur-sm',
+				'transition-opacity duration-300',
+				isBlurred
+					? 'opacity-50 border-[#FFD700]/20'
+					: 'border-[#FFD700]/30 shadow-[0_0_20px_rgba(255,215,0,0.1)]',
 				className,
 			)}
 			role="article"
 			aria-label={`잠금된 카드: ${topicName} ${currentIndex + 1}번째`}
 		>
-			{/* 블러 배경 */}
-			<div
-				className="absolute inset-0 bg-gradient-to-br from-black to-zinc-900"
-				style={{
-					opacity: 0.9,
-				}}
-				aria-hidden="true"
-			/>
-
-			{/* Celestial Glow Blobs for Locked State */}
-			<div className="absolute top-0 right-0 h-40 w-40 rounded-full bg-celestial-violet/20 blur-[50px]" />
-			<div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-celestial-blue/20 blur-[50px]" />
-
 			{/* 콘텐츠 */}
 			<div className="relative z-10 flex flex-col items-center space-y-6 text-center">
 				{/* 자물쇠 아이콘 */}
 				<div
-					className="text-6xl grayscale transition-all duration-500 hover:grayscale-0"
+					className="text-7xl sm:text-8xl"
+					style={{
+						filter: 'grayscale(100%)',
+						color: '#FFD700',
+						opacity: 0.6,
+					}}
 					aria-hidden="true"
 				>
 					🔒
 				</div>
 
 				{/* 주제명 */}
-				<h2 className="text-xl font-bold text-white">{topicName}</h2>
+				<h2 className="text-2xl font-bold text-white sm:text-3xl">
+					{topicName}
+				</h2>
 
 				{/* 잠금 안내 문구 */}
 				<div className="space-y-2">
-					<p className="text-base font-medium text-celestial-violet drop-shadow-sm">
+					<p
+						className="text-base font-medium"
+						style={{ color: '#FFD700' }}
+					>
 						이 카드를 보려면 해금이 필요해요
 					</p>
-					<p className="text-sm text-zinc-400">
+					<p className="text-sm text-gray-400">
 						더 깊은 해석을 확인하려면 결제가 필요합니다.
 					</p>
 				</div>
 
-				{/* 진행 표시 */}
-				<div className="text-sm text-zinc-600">
-					{currentIndex + 1} / {totalCount}
-				</div>
 
-				{/* CTA 버튼들 */}
-				<div className="flex flex-col gap-3 w-full max-w-xs">
-					{onUnlock && (
-						<Button
-							onClick={onUnlock}
-							size="lg"
-							variant="default"
-							className="min-h-[44px] w-full bg-linear-to-r from-celestial-violet to-indigo-500 shadow-[0_0_15px_rgba(124,58,237,0.4)]"
-							aria-label={`${topicName} 해금하기`}
-						>
-							해금하기
-						</Button>
-					)}
-					{showNextButton && onNext && (
-						<Button
-							onClick={onNext}
-							size="md"
-							variant="ghost"
-							className="min-h-[44px] w-full text-zinc-400 hover:text-white"
-							aria-label={`다음 카드 보기 (${currentIndex + 2}번째)`}
-						>
-							다음 카드
-						</Button>
-					)}
-				</div>
+				{/* CTA 버튼 */}
+				{!isBlurred && onUnlock && (
+					<Button
+						onClick={onUnlock}
+						size="lg"
+						variant="default"
+						className="min-h-[48px] w-full max-w-xs rounded-lg"
+						style={{
+							background:
+								'linear-gradient(to right, #7c3aed, #06b6d4)',
+							boxShadow: '0 0 20px rgba(124, 58, 237, 0.4)',
+						}}
+						aria-label={`${topicName} 해금하기`}
+					>
+						해금하기
+					</Button>
+				)}
 			</div>
 		</article>
 	);

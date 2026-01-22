@@ -24,67 +24,67 @@ export const topics: Topic[] = [
 		name: '첫인상과 외부 이미지',
 		isFree: true,
 	},
-	{
-		id: 'talents-strengths',
-		name: '재능과 강점이 발휘되는 영역',
-		isFree: true,
-	},
-	{
-		id: 'challenges-growth',
-		name: '인생의 과제·두려움·성장 포인트',
-		isFree: true,
-	},
-	// 유료 10주제
-	{
-		id: 'emotions-unconscious',
-		name: '감정 패턴과 무의식 반응',
-		isFree: false,
-	},
-	{
-		id: 'thinking-communication',
-		name: '사고방식·소통 스타일·학습 능력',
-		isFree: false,
-	},
-	{
-		id: 'love-relationships',
-		name: '사랑 방식과 인간관계 가치관',
-		isFree: false,
-	},
-	{
-		id: 'romance-marriage',
-		name: '연애·결혼에서 반복되는 패턴',
-		isFree: false,
-	},
-	{
-		id: 'action-desires',
-		name: '행동력·욕망·분노 표현 방식',
-		isFree: false,
-	},
-	{
-		id: 'career-vocation',
-		name: '직업 적성·커리어 방향·사회적 역할',
-		isFree: false,
-	},
-	{
-		id: 'money-material',
-		name: '돈·자존가치·물질적 안정 추구 방식',
-		isFree: false,
-	},
-	{
-		id: 'changes-crises',
-		name: '삶의 큰 변화와 위기 패턴',
-		isFree: false,
-	},
-	{
-		id: 'soul-purpose',
-		name: '영혼의 방향성·인생의 목적',
-		isFree: false,
-	},
-	{
-		id: 'timing-events',
-		name: '중요한 인생 사건이 일어나는 타이밍',
-		isFree: false,
-	},
+	// {
+	// 	id: 'talents-strengths',
+	// 	name: '재능과 강점이 발휘되는 영역',
+	// 	isFree: true,
+	// },
+	// {
+	// 	id: 'challenges-growth',
+	// 	name: '인생의 과제·두려움·성장 포인트',
+	// 	isFree: true,
+	// },
+	// // 유료 10주제
+	// {
+	// 	id: 'emotions-unconscious',
+	// 	name: '감정 패턴과 무의식 반응',
+	// 	isFree: false,
+	// },
+	// {
+	// 	id: 'thinking-communication',
+	// 	name: '사고방식·소통 스타일·학습 능력',
+	// 	isFree: false,
+	// },
+	// {
+	// 	id: 'love-relationships',
+	// 	name: '사랑 방식과 인간관계 가치관',
+	// 	isFree: false,
+	// },
+	// {
+	// 	id: 'romance-marriage',
+	// 	name: '연애·결혼에서 반복되는 패턴',
+	// 	isFree: false,
+	// },
+	// {
+	// 	id: 'action-desires',
+	// 	name: '행동력·욕망·분노 표현 방식',
+	// 	isFree: false,
+	// },
+	// {
+	// 	id: 'career-vocation',
+	// 	name: '직업 적성·커리어 방향·사회적 역할',
+	// 	isFree: false,
+	// },
+	// {
+	// 	id: 'money-material',
+	// 	name: '돈·자존가치·물질적 안정 추구 방식',
+	// 	isFree: false,
+	// },
+	// {
+	// 	id: 'changes-crises',
+	// 	name: '삶의 큰 변화와 위기 패턴',
+	// 	isFree: false,
+	// },
+	// {
+	// 	id: 'soul-purpose',
+	// 	name: '영혼의 방향성·인생의 목적',
+	// 	isFree: false,
+	// },
+	// {
+	// 	id: 'timing-events',
+	// 	name: '중요한 인생 사건이 일어나는 타이밍',
+	// 	isFree: false,
+	// },
 ];
 
 export const freeTopics: Topic[] = topics.filter((topic) => topic.isFree);
