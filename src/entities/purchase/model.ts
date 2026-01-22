@@ -3,14 +3,14 @@
  */
 
 export interface Purchase {
-  id: string;
-  userId: string;
-  topicIds: string[];
-  createdAt: Date;
-  updatedAt: Date;
+	id: string;
+	userId: string;
+	topicIds: string[];
+	createdAt: Date;
+	updatedAt: Date;
 }
 
 export interface CreatePurchaseInput {
-  userId: string;
-  topicIds: string[];
+	userId: string;
+	topicIds: string[];
 }

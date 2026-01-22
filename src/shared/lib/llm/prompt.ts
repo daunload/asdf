@@ -8,24 +8,26 @@ import type { LLMRequest } from './types';
  * 출생차트와 주제를 기반으로 LLM 프롬프트 생성
  */
 export function createPrompt(request: LLMRequest): string {
-  const { chartData, topicId, topicName, isTimeUnknown } = request;
+	const { chartData, topicId, topicName, isTimeUnknown } = request;
 
-  // 차트 데이터 요약 (주요 정보만 추출)
-  const sunSign = chartData.horoscope?.sunSign?.sign || '알 수 없음';
-  const ascendant = chartData.horoscope?.angles?.ascendant?.sign || '알 수 없음';
-  const moonSign = chartData.horoscope?.celestialBodies?.Moon?.sign || '알 수 없음';
+	// 차트 데이터 요약 (주요 정보만 추출)
+	const sunSign = chartData.horoscope?.sunSign?.sign || '알 수 없음';
+	const ascendant =
+		chartData.horoscope?.angles?.ascendant?.sign || '알 수 없음';
+	const moonSign =
+		chartData.horoscope?.celestialBodies?.Moon?.sign || '알 수 없음';
 
-  // 시간 모름 처리 안내
-  const timeUnknownNote = isTimeUnknown
-    ? '\n\n⚠️ 중요: 출생 시간을 모르는 경우이므로, 시간에 의존적인 해석(예: 하우스 위치, 상승궁 정확도)은 제한적이거나 근사치로 제공해야 합니다. 이 점을 명시하거나 일반적인 해석에 집중하세요.'
-    : '';
+	// 시간 모름 처리 안내
+	const timeUnknownNote = isTimeUnknown
+		? '\n\n⚠️ 중요: 출생 시간을 모르는 경우이므로, 시간에 의존적인 해석(예: 하우스 위치, 상승궁 정확도)은 제한적이거나 근사치로 제공해야 합니다. 이 점을 명시하거나 일반적인 해석에 집중하세요.'
+		: '';
 
-  // 출생 시간 문자열 생성
-  const birthTimeStr = isTimeUnknown
-    ? '알 수 없음 (기본값 12:00 사용)'
-    : `${chartData.origin.hour}:${String(chartData.origin.minute).padStart(2, '0')}`;
+	// 출생 시간 문자열 생성
+	const birthTimeStr = isTimeUnknown
+		? '알 수 없음 (기본값 12:00 사용)'
+		: `${chartData.origin.hour}:${String(chartData.origin.minute).padStart(2, '0')}`;
 
-  const prompt = `당신은 전문적인 점성술 해석가입니다. 다음 출생차트 정보를 바탕으로 "${topicName}" 주제에 대한 해석을 제공해주세요.
+	const prompt = `당신은 전문적인 점성술 해석가입니다. 다음 출생차트 정보를 바탕으로 "${topicName}" 주제에 대한 해석을 제공해주세요.
 
 **출생차트 정보:**
 - 태양궁: ${sunSign}
@@ -52,5 +54,5 @@ export function createPrompt(request: LLMRequest): string {
 
 JSON 응답만 반환하세요.`;
 
-  return prompt;
+	return prompt;
 }

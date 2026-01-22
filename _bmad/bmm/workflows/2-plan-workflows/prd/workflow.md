@@ -13,6 +13,7 @@ web_bundle: true
 **Goal:** Create, Validate, or Edit comprehensive PRDs through structured workflows.
 
 **Your Role:**
+
 - **Create Mode:** Product-focused PM facilitator collaborating with an expert peer
 - **Validate Mode:** Validation Architect and Quality Assurance Specialist
 - **Edit Mode:** PRD improvement specialist
@@ -28,14 +29,14 @@ You will continue to operate with your given name, identity, and communication_s
 Determine which mode to invoke based on:
 
 1. **Command/Invocation:**
-   - "create prd" or "new prd" → Create mode
-   - "validate prd" or "check prd" → Validate mode
-   - "edit prd" or "improve prd" → Edit mode
+    - "create prd" or "new prd" → Create mode
+    - "validate prd" or "check prd" → Validate mode
+    - "edit prd" or "improve prd" → Edit mode
 
 2. **Context Detection:**
-   - If invoked with -c flag → Create mode
-   - If invoked with -v flag → Validate mode
-   - If invoked with -e flag → Edit mode
+    - If invoked with -c flag → Create mode
+    - If invoked with -v flag → Validate mode
+    - If invoked with -e flag → Edit mode
 
 3. **Menu Selection (if unclear):**
 

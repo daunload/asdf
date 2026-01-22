@@ -1,6 +1,10 @@
 ---
 stepsCompleted: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-inputDocuments: ["_bmad-output/planning-artifacts/prd.md", "_bmad-output/planning-artifacts/architecture.md"]
+inputDocuments:
+    [
+        '_bmad-output/planning-artifacts/prd.md',
+        '_bmad-output/planning-artifacts/architecture.md',
+    ]
 lastStep: 14
 workflowType: ux-design
 ---
@@ -89,15 +93,15 @@ workflowType: ux-design
 
 ### Emotional Journey Mapping
 
-| 단계 | 감정 목표 |
-|------|-----------|
-| **랜딩·첫 발견** | 호기심, "한번 해볼까" |
-| **입력(생년월일·시간·장소)** | 부담 없음, "간단하네" |
-| **로딩(차트·LLM)** | 기대, "뭔가 만들고 있구나" |
-| **무료 4장** | "맞다", "이렇게 보이구나", 가벼운 성취 |
-| **유료 잠금 노출** | "나중에 더 보고 싶다" rather than "굳이" |
-| **결제·해금** | "값진 구매", 구체적 해석에 대한 만족 |
-| **재방문** | "역시 여기", 습관·의존 |
+| 단계                         | 감정 목표                                |
+| ---------------------------- | ---------------------------------------- |
+| **랜딩·첫 발견**             | 호기심, "한번 해볼까"                    |
+| **입력(생년월일·시간·장소)** | 부담 없음, "간단하네"                    |
+| **로딩(차트·LLM)**           | 기대, "뭔가 만들고 있구나"               |
+| **무료 4장**                 | "맞다", "이렇게 보이구나", 가벼운 성취   |
+| **유료 잠금 노출**           | "나중에 더 보고 싶다" rather than "굳이" |
+| **결제·해금**                | "값진 구매", 구체적 해석에 대한 만족     |
+| **재방문**                   | "역시 여기", 습관·의존                   |
 
 ### Micro-Emotions
 
@@ -163,7 +167,7 @@ workflowType: ux-design
 
 ### Implementation Approach
 
-- create-next-app 초기화 후 `@base-ui-components/react`(또는 최신 패키지명) 설치.  
+- create-next-app 초기화 후 `@base-ui-components/react`(또는 최신 패키지명) 설치.
 - `shared/ui/`에 Button, Input, Modal 등 래퍼. Tailwind 클래스로 시각·간격·반응형.
 - 디자인 토큰(색, 타이포, 간격)은 Tailwind `theme` 확장으로 관리.
 
@@ -202,17 +206,17 @@ workflowType: ux-design
 
 ### Experience Mechanics
 
-| 단계 | 사용자 | 시스템 | 피드백 |
-|------|--------|--------|--------|
-| **시작** | 랜딩/온보딩 진입 | — | CTA "시작하기" |
-| **입력 1** | 생년월일 선택/입력 | 유효성 검사 | 다음 스텝 노출 |
-| **입력 2** | 시간 입력 또는 "모름" | (모름 시) 기본값/제한 모드 안내 | 다음 스텝 노출 |
-| **입력 3** | 장소 입력 | — | "결과 보기" 등 CTA |
-| **로딩** | 대기 | 출생차트 계산 + LLM 호출 | 스피너·진행 문구 |
-| **카드 1~4** | 심볼·문장·[ 다음 카드 ] | 무료 4주제 순차 | 카드 전환 애니메이션 |
-| **잠금** | 잠금 카드·목록 확인 | 10주제 잠금 표시 | "해금이 필요해요" + CTA |
-| **결제** | 결제/구독 플로우 | PG·웹훅·구매 이력 | 완료 후 해금·카드 노출 |
-| **재방문** | 로그인/세션 | 구매 이력 조회 | 해금 주제 즉시 열람 |
+| 단계         | 사용자                  | 시스템                          | 피드백                  |
+| ------------ | ----------------------- | ------------------------------- | ----------------------- |
+| **시작**     | 랜딩/온보딩 진입        | —                               | CTA "시작하기"          |
+| **입력 1**   | 생년월일 선택/입력      | 유효성 검사                     | 다음 스텝 노출          |
+| **입력 2**   | 시간 입력 또는 "모름"   | (모름 시) 기본값/제한 모드 안내 | 다음 스텝 노출          |
+| **입력 3**   | 장소 입력               | —                               | "결과 보기" 등 CTA      |
+| **로딩**     | 대기                    | 출생차트 계산 + LLM 호출        | 스피너·진행 문구        |
+| **카드 1~4** | 심볼·문장·[ 다음 카드 ] | 무료 4주제 순차                 | 카드 전환 애니메이션    |
+| **잠금**     | 잠금 카드·목록 확인     | 10주제 잠금 표시                | "해금이 필요해요" + CTA |
+| **결제**     | 결제/구독 플로우        | PG·웹훅·구매 이력               | 완료 후 해금·카드 노출  |
+| **재방문**   | 로그인/세션             | 구매 이력 조회                  | 해금 주제 즉시 열람     |
 
 ---
 
@@ -222,9 +226,9 @@ workflowType: ux-design
 
 - **톤:** 밝고 현대적. 기존 운세의 어둡고 신비로운 톤 배제.
 - **역할:**
-  - **Primary:** CTA, [ 다음 카드 ], 해금·결제. 강조·행동 유도.
-  - **Secondary:** 배경·카드 구분·보조 요소.
-  - **Semantic:** Success(해금·완료), Warning(제한 모드·시간 모름), Error(에러·재시도 유도).
+    - **Primary:** CTA, [ 다음 카드 ], 해금·결제. 강조·행동 유도.
+    - **Secondary:** 배경·카드 구분·보조 요소.
+    - **Semantic:** Success(해금·완료), Warning(제한 모드·시간 모름), Error(에러·재시도 유도).
 - **접근성:** 본문 대비 4.5:1 이상. 터치 영역·포커스 링 대비 확보.
 
 ### Typography System
@@ -409,13 +413,13 @@ flowchart TD
 
 ### Implementation Roadmap
 
-| 단계 | 컴포넌트 | 용도 |
-|------|----------|------|
-| **Phase 1** | OnboardingStep, NatalCard, [ 다음 카드 ] CTA | 첫 방문·무료 4장 |
-| **Phase 1** | LockedTopicCard / List, 결제 CTA | 유료 잠금·전환 |
-| **Phase 1** | ChartLoading, LoadingCard, 에러·retry UI | 로딩·NFR-P2, I1·I2 |
-| **Phase 2** | ProgressIndicator, "오늘의 한 장" | 재방문·진행감 |
-| **Phase 2** | 공유·OG, (선택) 스와이프 | Growth |
+| 단계        | 컴포넌트                                     | 용도               |
+| ----------- | -------------------------------------------- | ------------------ |
+| **Phase 1** | OnboardingStep, NatalCard, [ 다음 카드 ] CTA | 첫 방문·무료 4장   |
+| **Phase 1** | LockedTopicCard / List, 결제 CTA             | 유료 잠금·전환     |
+| **Phase 1** | ChartLoading, LoadingCard, 에러·retry UI     | 로딩·NFR-P2, I1·I2 |
+| **Phase 2** | ProgressIndicator, "오늘의 한 장"            | 재방문·진행감      |
+| **Phase 2** | 공유·OG, (선택) 스와이프                     | Growth             |
 
 ---
 
@@ -429,28 +433,28 @@ flowchart TD
 
 ### Feedback Patterns
 
-- **Success:** 해금·결제 완료 → 짧은 토스트/인라인 + 다음 화면(카드 노출).  
-- **Error:** `{ error, retry }` → 인라인 메시지 + "다시 시도" 버튼. NFR-I1·I2.  
-- **Loading:** 스피너·스켈레톤·진행 문구. 버튼 비활성화(중복 제출 방지).  
+- **Success:** 해금·결제 완료 → 짧은 토스트/인라인 + 다음 화면(카드 노출).
+- **Error:** `{ error, retry }` → 인라인 메시지 + "다시 시도" 버튼. NFR-I1·I2.
+- **Loading:** 스피너·스켈레톤·진행 문구. 버튼 비활성화(중복 제출 방지).
 - **Warning:** "시간 모름" 제한 모드 안내. Semantic Warning 색·아이콘.
 
 ### Form Patterns
 
-- **스텝당 한 입력.** 라벨·placeholder·에러는 필드 인접. `aria-invalid`, `aria-describedby`.  
-- **"모름"·"건너뛰기"**는 체크박스·라디오로 명시. 선택 시 보조 안내 노출.  
+- **스텝당 한 입력.** 라벨·placeholder·에러는 필드 인접. `aria-invalid`, `aria-describedby`.
+- **"모름"·"건너뛰기"**는 체크박스·라디오로 명시. 선택 시 보조 안내 노출.
 - **제출:** 로딩 중 버튼 비활성·로딩 표시. 에러 시 폼 상단 요약(선택) + 필드별 에러.
 
 ### Navigation Patterns
 
-- **온보딩:** 이전/다음. 이전 시 데이터 유지.  
-- **카드:** [ 다음 카드 ] only. (선택) 스와이프. 인덱스는 ProgressIndicator.  
-- **잠금:** 목록에서 주제 선택 → 결제 or 잠금 카드에서 CTA.  
+- **온보딩:** 이전/다음. 이전 시 데이터 유지.
+- **카드:** [ 다음 카드 ] only. (선택) 스와이프. 인덱스는 ProgressIndicator.
+- **잠금:** 목록에서 주제 선택 → 결제 or 잠금 카드에서 CTA.
 - **전역:** 헤더 로그인/계정. 랜딩·온보딩·카드·결제 간 이동은 CTA·흐름에 따름.
 
 ### Additional Patterns
 
-- **Empty:** 카드 없음(에러·재시도), 구매 이력 없음(잠금 유도). 문구 + CTA.  
-- **Modal:** 확인(시간 모름 동의), 결제·에러. 배경 블러·포커스 트랩·ESC.  
+- **Empty:** 카드 없음(에러·재시도), 구매 이력 없음(잠금 유도). 문구 + CTA.
+- **Modal:** 확인(시간 모름 동의), 결제·에러. 배경 블러·포커스 트랩·ESC.
 - **목록·카드:** 잠금 목록은 카드 그리드 또는 리스트. 터치 44px, 클릭 영역 명확.
 
 ---
@@ -459,38 +463,38 @@ flowchart TD
 
 ### Responsive Strategy
 
-- **모바일 우선.** 320px~767px 기준. 카드·입력·CTA는 스크롤 없이 한 화면.  
-- **태블릿 768~1023px:** 동일 레이아웃, 터치 타겟·간격 유지. 카드 최대 너비로 가독성.  
+- **모바일 우선.** 320px~767px 기준. 카드·입력·CTA는 스크롤 없이 한 화면.
+- **태블릿 768~1023px:** 동일 레이아웃, 터치 타겟·간격 유지. 카드 최대 너비로 가독성.
 - **데스크톱 1024px+:** 카드·폼 중앙 정렬, 최대 너비(예: 480px)로 한 줄 가독성.
 
 ### Breakpoint Strategy
 
 - **Tailwind 기본 + 필요 시 확장:**  
-  `sm:640`, `md:768`, `lg:1024`, `xl:1280`.  
+  `sm:640`, `md:768`, `lg:1024`, `xl:1280`.
 - **카드·입력:** 모바일 1열. 데스크톱에서도 카드는 1장씩(한 화면 한 주제 유지).
 
 ### Accessibility Strategy
 
-- **MVP:**  
-  - 키보드 포커스(NFR-A1): 입력·버튼·카드 CTA.  
-  - 터치 44×44px(NFR-A2).  
-  - 대비: 본문 4.5:1.  
-  - `error`·`retry` 노출(NFR-I1·I2).  
+- **MVP:**
+    - 키보드 포커스(NFR-A1): 입력·버튼·카드 CTA.
+    - 터치 44×44px(NFR-A2).
+    - 대비: 본문 4.5:1.
+    - `error`·`retry` 노출(NFR-I1·I2).
 - **Growth:** WCAG 2.1 AA. ARIA·스크린 리더, 색 외 시각적 구분.
 
 ### Testing Strategy
 
-- **반응형:** Chrome DevTools, iOS Safari·Android Chrome 실제 기기. 320, 375, 768, 1024.  
-- **접근성:**  
-  - 키보드만으로 온보딩·카드·결제 CTA 조작.  
-  - axe·Lighthouse a11y.  
-  - (Growth) VoiceOver·TalkBack.
+- **반응형:** Chrome DevTools, iOS Safari·Android Chrome 실제 기기. 320, 375, 768, 1024.
+- **접근성:**
+    - 키보드만으로 온보딩·카드·결제 CTA 조작.
+    - axe·Lighthouse a11y.
+    - (Growth) VoiceOver·TalkBack.
 
 ### Implementation Guidelines
 
-- **단위:** `rem`·`%`·`vw/vh` 우선. `px`는 44px 터치 등 고정 필요 시만.  
-- **포커스:** `focus-visible:ring-2` 등. Base UI 기본 포커스 활용.  
-- **시맨틱:** `main`, `article`, `button`, `label`, `fieldset`/`legend`.  
+- **단위:** `rem`·`%`·`vw/vh` 우선. `px`는 44px 터치 등 고정 필요 시만.
+- **포커스:** `focus-visible:ring-2` 등. Base UI 기본 포커스 활용.
+- **시맨틱:** `main`, `article`, `button`, `label`, `fieldset`/`legend`.
 - **ARIA:** `aria-label`, `aria-live`(로딩·에러), `aria-busy`(로딩).
 
 ---
@@ -499,27 +503,27 @@ flowchart TD
 
 ### Specification Status
 
-- **Workflow:** create-ux-design  
-- **Steps completed:** 1–14  
-- **Inputs:** `prd.md`, `architecture.md`  
+- **Workflow:** create-ux-design
+- **Steps completed:** 1–14
+- **Inputs:** `prd.md`, `architecture.md`
 - **Output:** `_bmad-output/planning-artifacts/ux-design-specification.md`
 
 ### Design–Implementation Mapping
 
-| UX 문서 섹션 | 아키텍처/구현 |
-|--------------|----------------|
-| Core User Experience, Defining Experience | `widgets/card-viewer`, `features/cards`, `entities/card` |
-| OnboardingStep, 스텝 입력 | `widgets/onboarding-steps`, `features/onboarding` |
-| LockedTopicCard/List, 잠금 | `widgets/locked-topic-list`, `features/access`, `features/payment` |
-| NatalCard, 한 장 카드 | `entities/card`, `widgets/card-viewer` |
-| Loading, Error, retry | `loading.tsx`, `error.tsx`, `{ error, code, retry }` |
-| Visual Foundation, Design Direction | `tailwind.config`, `shared/ui`, Design Tokens |
-| Responsive & Accessibility | NFR-A1·A2, breakpoints, 터치 44px |
+| UX 문서 섹션                              | 아키텍처/구현                                                      |
+| ----------------------------------------- | ------------------------------------------------------------------ |
+| Core User Experience, Defining Experience | `widgets/card-viewer`, `features/cards`, `entities/card`           |
+| OnboardingStep, 스텝 입력                 | `widgets/onboarding-steps`, `features/onboarding`                  |
+| LockedTopicCard/List, 잠금                | `widgets/locked-topic-list`, `features/access`, `features/payment` |
+| NatalCard, 한 장 카드                     | `entities/card`, `widgets/card-viewer`                             |
+| Loading, Error, retry                     | `loading.tsx`, `error.tsx`, `{ error, code, retry }`               |
+| Visual Foundation, Design Direction       | `tailwind.config`, `shared/ui`, Design Tokens                      |
+| Responsive & Accessibility                | NFR-A1·A2, breakpoints, 터치 44px                                  |
 
 ### Next Steps
 
-1. **Create Epics and Stories:** 이 UX 문서를 입력에 포함해, 프론트·위젯·플로우 단위 에픽/스토리 생성.  
-2. **와이어프레임:** 카드·온보딩·잠금 화면 저 fidelity.  
+1. **Create Epics and Stories:** 이 UX 문서를 입력에 포함해, 프론트·위젯·플로우 단위 에픽/스토리 생성.
+2. **와이어프레임:** 카드·온보딩·잠금 화면 저 fidelity.
 3. **시각 디자인:** 색·타이포·컴포넌트 high-fi. (선택) `ux-color-themes.html`, `ux-design-directions.html` 확장.
 
 ---

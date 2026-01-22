@@ -51,6 +51,7 @@ Complete the PRD workflow, update status files, offer validation options, and su
 ### 1. Announce Workflow Completion
 
 Inform user that the PRD is complete and polished:
+
 - Celebrate successful completion of comprehensive PRD
 - Summarize all sections that were created
 - Highlight that document has been polished for flow and coherence
@@ -72,6 +73,7 @@ Offer validation workflows to ensure PRD is ready for implementation:
 **Available Validation Workflows:**
 
 **Option 1: Check Implementation Readiness** (`{checkImplementationReadinessWorkflow}`)
+
 - Validates PRD has all information needed for development
 - Checks epic coverage completeness
 - Reviews UX alignment with requirements
@@ -81,6 +83,7 @@ Offer validation workflows to ensure PRD is ready for implementation:
 **When to use:** Before starting technical architecture or epic breakdown
 
 **Option 2: Skip for Now**
+
 - Proceed directly to next workflows (architecture, UX, epics)
 - Validation can be done later if needed
 - Some teams prefer to validate during architecture reviews
@@ -94,25 +97,25 @@ Provide guidance on logical next workflows - strongly suggesting any of these ch
 **Immediate Next Steps:**
 
 1. **PRD Quality Validation First (Recommended):**
-   - execute the `{validationFlow}` workflow if selected or start a new chat with me and select the validate PRD menu item
-   - Ensures PRD is complete and ready
-   - Identifies any gaps or issues
-   - Validates before committing to architecture/design
+    - execute the `{validationFlow}` workflow if selected or start a new chat with me and select the validate PRD menu item
+    - Ensures PRD is complete and ready
+    - Identifies any gaps or issues
+    - Validates before committing to architecture/design
 
 2. **UX Design:** `workflow create-ux-design` with the UX-Designer Agent (if UI exists)
-   - User journey insights from step-04 inform interaction design
-   - Functional requirements from step-09 define design scope
-   - Polish-optimized document provides clear design requirements
+    - User journey insights from step-04 inform interaction design
+    - Functional requirements from step-09 define design scope
+    - Polish-optimized document provides clear design requirements
 
 3. **Technical Architecture:** `workflow create-architecture` with the Architect Agent
-   - Project-type requirements from step-07 guide technical decisions
-   - Non-functional requirements from step-10 inform architecture choices
-   - Functional requirements define system capabilities
+    - Project-type requirements from step-07 guide technical decisions
+    - Non-functional requirements from step-10 inform architecture choices
+    - Functional requirements define system capabilities
 
 4. **Epic Breakdown:** `workflow create-epics-and-stories` with me again - but really recommend first doing a UX if needed and an architecture!
-   - Functional requirements from step-09 become epics and stories
-   - Scope definition from step-03 guides sprint planning
-   - Richer when created after UX/architecture
+    - Functional requirements from step-09 become epics and stories
+    - Scope definition from step-03 guides sprint planning
+    - Richer when created after UX/architecture
 
 **Strategic Considerations:**
 

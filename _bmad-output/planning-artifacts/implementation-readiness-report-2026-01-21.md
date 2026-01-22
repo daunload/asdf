@@ -1,10 +1,10 @@
 ---
 stepsCompleted: [1, 2, 3, 4, 5, 6]
 documentsAssessed:
-  prd: "_bmad-output/planning-artifacts/prd.md"
-  architecture: "_bmad-output/planning-artifacts/architecture.md"
-  epics: "_bmad-output/planning-artifacts/epics.md"
-  ux: "_bmad-output/planning-artifacts/ux-design-specification.md"
+    prd: '_bmad-output/planning-artifacts/prd.md'
+    architecture: '_bmad-output/planning-artifacts/architecture.md'
+    epics: '_bmad-output/planning-artifacts/epics.md'
+    ux: '_bmad-output/planning-artifacts/ux-design-specification.md'
 ---
 
 # Implementation Readiness Assessment Report
@@ -19,6 +19,7 @@ documentsAssessed:
 ### PRD
 
 **Whole:**
+
 - `prd.md` (~20KB, 2026-01-21)
 
 **Sharded:** 없음
@@ -28,6 +29,7 @@ documentsAssessed:
 ### Architecture
 
 **Whole:**
+
 - `architecture.md` (~32KB, 2026-01-21)
 
 **Sharded:** 없음
@@ -35,6 +37,7 @@ documentsAssessed:
 ### Epics & Stories
 
 **Whole:**
+
 - `epics.md` (~26KB, 2026-01-21)
 
 **Sharded:** 없음
@@ -42,6 +45,7 @@ documentsAssessed:
 ### UX Design
 
 **Whole:**
+
 - `ux-design-specification.md` (~26KB, 2026-01-21)
 
 **Sharded:** 없음
@@ -128,59 +132,59 @@ documentsAssessed:
 
 ### Epic FR Coverage (from epics.md)
 
-| FR  | Epic | Story |
-|-----|------|-------|
-| FR1 | 2    | 2.1   |
-| FR2, FR3 | 2 | 2.2   |
-| FR4 | 2    | 2.3   |
-| FR5 | 2    | 2.4   |
-| FR6, FR7, FR12 | 3 | 3.1   |
-| FR8, FR9, FR10 | 3 | 3.2   |
-| FR11, FR13, FR14, FR15, FR16, FR18 | 3 | 3.3   |
-| FR19, FR21 | 3 | 3.4   |
-| FR27, FR30 | 4 | 4.2   |
-| FR20, FR24, FR28 | 5 | 5.1   |
-| FR22, FR23, FR25, FR26 | 5 | 5.2   |
-| FR17 | 5    | 5.3   |
-| FR29 | 6    | 6.1   |
-| FR31, FR32 | 1 | 1.2   |
+| FR                                 | Epic | Story |
+| ---------------------------------- | ---- | ----- |
+| FR1                                | 2    | 2.1   |
+| FR2, FR3                           | 2    | 2.2   |
+| FR4                                | 2    | 2.3   |
+| FR5                                | 2    | 2.4   |
+| FR6, FR7, FR12                     | 3    | 3.1   |
+| FR8, FR9, FR10                     | 3    | 3.2   |
+| FR11, FR13, FR14, FR15, FR16, FR18 | 3    | 3.3   |
+| FR19, FR21                         | 3    | 3.4   |
+| FR27, FR30                         | 4    | 4.2   |
+| FR20, FR24, FR28                   | 5    | 5.1   |
+| FR22, FR23, FR25, FR26             | 5    | 5.2   |
+| FR17                               | 5    | 5.3   |
+| FR29                               | 6    | 6.1   |
+| FR31, FR32                         | 1    | 1.2   |
 
 ### Coverage Matrix (PRD vs Epics)
 
-| FR   | PRD 요약                 | 에픽·스토리 | 상태     |
-|------|---------------------------|-------------|----------|
-| FR1  | 생년월일 입력             | Epic 2 Story 2.1 | ✓ Covered |
-| FR2  | 출생 시간 입력            | Epic 2 Story 2.2 | ✓ Covered |
-| FR3  | 출생 시간 "모름" 선택     | Epic 2 Story 2.2 | ✓ Covered |
-| FR4  | 출생 장소 입력            | Epic 2 Story 2.3 | ✓ Covered |
-| FR5  | 스텝당 한 단계 진행       | Epic 2 Story 2.4 | ✓ Covered |
-| FR6  | 출생 정보→차트·해석 사용  | Epic 3 Story 3.1 | ✓ Covered |
-| FR7  | 출생차트 계산             | Epic 3 Story 3.1 | ✓ Covered |
-| FR8  | 출생차트+주제→LLM        | Epic 3 Story 3.2 | ✓ Covered |
-| FR9  | LLM→구조화 카드          | Epic 3 Story 3.2 | ✓ Covered |
-| FR10 | 14주제 한 장 카드 생성    | Epic 3 Story 3.2 | ✓ Covered |
-| FR11 | 로딩·진행 상태            | Epic 3 Story 3.3 | ✓ Covered |
-| FR12 | "시간 모름" 제한/근사 해석| Epic 3 Story 3.1, 3.2 | ✓ Covered |
-| FR13 | 한 번에 한 장 카드        | Epic 3 Story 3.3 | ✓ Covered |
-| FR14 | 심볼·문장·CTA            | Epic 3 Story 3.3 | ✓ Covered |
-| FR15 | [ 다음 카드 ]             | Epic 3 Story 3.3 | ✓ Covered |
-| FR16 | 무료 4주제 순서 열람      | Epic 3 Story 3.3 | ✓ Covered |
-| FR17 | 해금 유료 카드 열람       | Epic 5 Story 5.3 | ✓ Covered |
-| FR18 | 4무료 결제 없이 노출      | Epic 3 Story 3.3 | ✓ Covered |
-| FR19 | 10유료 잠금 노출          | Epic 3 Story 3.4 | ✓ Covered |
-| FR20 | 구매/구독에 따른 접근 제한| Epic 5 Story 5.1 | ✓ Covered |
-| FR21 | 무료/유료 구분            | Epic 3 Story 3.4 | ✓ Covered |
-| FR22 | 결제/구독 시작            | Epic 5 Story 5.2 | ✓ Covered |
-| FR23 | 결제/구독 플로우 완료     | Epic 5 Story 5.2 | ✓ Covered |
-| FR24 | 구매 이력 기록·연결       | Epic 5 Story 5.1 | ✓ Covered |
-| FR25 | 결제 완료 후 해금         | Epic 5 Story 5.2 | ✓ Covered |
-| FR26 | 주제/패키지 선택          | Epic 5 Story 5.2 | ✓ Covered |
-| FR27 | 세션/계정 식별            | Epic 4 Story 4.2 | ✓ Covered |
-| FR28 | 구매 이력 사용자 연계     | Epic 5 Story 5.1 | ✓ Covered |
-| FR29 | 재방문 시 해금 재열람     | Epic 6 Story 6.1 | ✓ Covered |
-| FR30 | 로그인·계정 생성          | Epic 4 Story 4.2 | ✓ Covered |
-| FR31 | 랜딩 페이지 진입          | Epic 1 Story 1.2 | ✓ Covered |
-| FR32 | 메타·OG(SEO·SNS)          | Epic 1 Story 1.2 | ✓ Covered |
+| FR   | PRD 요약                   | 에픽·스토리           | 상태      |
+| ---- | -------------------------- | --------------------- | --------- |
+| FR1  | 생년월일 입력              | Epic 2 Story 2.1      | ✓ Covered |
+| FR2  | 출생 시간 입력             | Epic 2 Story 2.2      | ✓ Covered |
+| FR3  | 출생 시간 "모름" 선택      | Epic 2 Story 2.2      | ✓ Covered |
+| FR4  | 출생 장소 입력             | Epic 2 Story 2.3      | ✓ Covered |
+| FR5  | 스텝당 한 단계 진행        | Epic 2 Story 2.4      | ✓ Covered |
+| FR6  | 출생 정보→차트·해석 사용   | Epic 3 Story 3.1      | ✓ Covered |
+| FR7  | 출생차트 계산              | Epic 3 Story 3.1      | ✓ Covered |
+| FR8  | 출생차트+주제→LLM          | Epic 3 Story 3.2      | ✓ Covered |
+| FR9  | LLM→구조화 카드            | Epic 3 Story 3.2      | ✓ Covered |
+| FR10 | 14주제 한 장 카드 생성     | Epic 3 Story 3.2      | ✓ Covered |
+| FR11 | 로딩·진행 상태             | Epic 3 Story 3.3      | ✓ Covered |
+| FR12 | "시간 모름" 제한/근사 해석 | Epic 3 Story 3.1, 3.2 | ✓ Covered |
+| FR13 | 한 번에 한 장 카드         | Epic 3 Story 3.3      | ✓ Covered |
+| FR14 | 심볼·문장·CTA              | Epic 3 Story 3.3      | ✓ Covered |
+| FR15 | [ 다음 카드 ]              | Epic 3 Story 3.3      | ✓ Covered |
+| FR16 | 무료 4주제 순서 열람       | Epic 3 Story 3.3      | ✓ Covered |
+| FR17 | 해금 유료 카드 열람        | Epic 5 Story 5.3      | ✓ Covered |
+| FR18 | 4무료 결제 없이 노출       | Epic 3 Story 3.3      | ✓ Covered |
+| FR19 | 10유료 잠금 노출           | Epic 3 Story 3.4      | ✓ Covered |
+| FR20 | 구매/구독에 따른 접근 제한 | Epic 5 Story 5.1      | ✓ Covered |
+| FR21 | 무료/유료 구분             | Epic 3 Story 3.4      | ✓ Covered |
+| FR22 | 결제/구독 시작             | Epic 5 Story 5.2      | ✓ Covered |
+| FR23 | 결제/구독 플로우 완료      | Epic 5 Story 5.2      | ✓ Covered |
+| FR24 | 구매 이력 기록·연결        | Epic 5 Story 5.1      | ✓ Covered |
+| FR25 | 결제 완료 후 해금          | Epic 5 Story 5.2      | ✓ Covered |
+| FR26 | 주제/패키지 선택           | Epic 5 Story 5.2      | ✓ Covered |
+| FR27 | 세션/계정 식별             | Epic 4 Story 4.2      | ✓ Covered |
+| FR28 | 구매 이력 사용자 연계      | Epic 5 Story 5.1      | ✓ Covered |
+| FR29 | 재방문 시 해금 재열람      | Epic 6 Story 6.1      | ✓ Covered |
+| FR30 | 로그인·계정 생성           | Epic 4 Story 4.2      | ✓ Covered |
+| FR31 | 랜딩 페이지 진입           | Epic 1 Story 1.2      | ✓ Covered |
+| FR32 | 메타·OG(SEO·SNS)           | Epic 1 Story 1.2      | ✓ Covered |
 
 ### Missing Requirements
 
@@ -188,8 +192,8 @@ documentsAssessed:
 
 ### Coverage Statistics
 
-- **Total PRD FRs:** 32  
-- **FRs covered in epics:** 32  
+- **Total PRD FRs:** 32
+- **FRs covered in epics:** 32
 - **Coverage:** 100%
 
 ---
@@ -236,7 +240,7 @@ create-epics-and-stories 기준으로 에픽·스토리 품질을 검토함.
 - **Epic 3:** "출생차트·한 장 카드(무료 4), 유료 10 잠금 인지" — 사용자 중심. ✓
 - **Epic 4:** "로그인·계정 생성, 세션/계정 식별" — 사용자 중심. ✓
 - **Epic 5:** "유료 선택·결제·해금, 카드 열람, 구매 이력 연계" — 사용자 중심. ✓
-- **Epic 6:** "재방문 시 해금 주제 재열람" — 사용자 중심. ✓  
+- **Epic 6:** "재방문 시 해금 주제 재열람" — 사용자 중심. ✓
 
 **기술 에픽:** 없음. 모두 사용자 가치 전달.
 
@@ -247,7 +251,7 @@ create-epics-and-stories 기준으로 에픽·스토리 품질을 검토함.
 - **Epic 3:** Epic 1, 2(출생정보 쿠키)만 필요. 4·5·6 미필요(무료·익명 플로우). ✓
 - **Epic 4:** Epic 1 필요. 5·6 미필요. ✓
 - **Epic 5:** Epic 1·2·3·4 필요. 6 미필요. ✓
-- **Epic 6:** Epic 1–5 필요. ✓  
+- **Epic 6:** Epic 1–5 필요. ✓
 
 **순방향 의존(Forward dependency):** 없음. Epic N은 N+1을 참조하지 않음.
 
@@ -261,7 +265,7 @@ create-epics-and-stories 기준으로 에픽·스토리 품질을 검토함.
 - **3.1–3.4:** 3.1→3.2→3.3→3.4. Epic 2(쿠키)만 선행. ✓
 - **4.1–4.2:** 4.2가 4.1 사용. Epic 1만 선행. ✓
 - **5.1–5.3:** 5.1(4.1 User 필요)→5.2→5.3. ✓
-- **6.1:** 4.2, 5.1, 5.3 사용. ✓  
+- **6.1:** 4.2, 5.1, 5.3 사용. ✓
 
 **에픽 단위 스토리·미완결 스토리:** 없음.
 
@@ -276,13 +280,13 @@ create-epics-and-stories 기준으로 에픽·스토리 품질을 검토함.
 
 - 1.1 단독 → 1.2가 1.1 사용.
 - 2.1→2.2→2.3→2.4; 3.1→3.2→3.3→3.4; 4.1→4.2; 5.1→5.2→5.3.  
-**순방향 참조(이후 스토리 의존):** 없음.
+  **순방향 참조(이후 스토리 의존):** 없음.
 
 #### Database/Entity Creation Timing
 
 - **User, Session:** Epic 4 Story 4.1 — 인증 **최초 필요 시점**에 생성. ✓
 - **Purchase:** Epic 5 Story 5.1 — 결제 **최초 필요 시점**에 생성. ✓
-- **Epic 1에서 전 테이블 생성:** 없음. ✓  
+- **Epic 1에서 전 테이블 생성:** 없음. ✓
 
 **“필요한 스토리에서만 생성” 원칙 준수.**
 
@@ -305,21 +309,21 @@ create-epics-and-stories 기준으로 에픽·스토리 품질을 검토함.
 
 1. **페르소나 "시스템":** Story 3.1, 3.2, 4.1, 5.1이 "As a **시스템**" 사용. 에픽은 사용자 가치 있음. (선택) "As a 방문자, I want the system to ..."로 재표현 시 일관성 향상.
 2. **2.4 ↔ 3.3:** 2.4는 `/cards` 리다이렉트. 2.4의 최종 사용자 가치는 3.3에서 실현. 구현 순서 2→3이면 문제 없음. (선택) 2.4 또는 에픽 주에 "3.3 전까지 /cards는 로딩·플레이스홀더 허용" 명시.
-3. **AC 보완:**  
-   - 2.1: 잘못된 날짜 시 검증 메시지 노출을 AC에 추가하면 명확.  
-   - 3.3: `/api/chart`, `/api/cards` 실패 시 `{ error, retry }` UI 노출을 AC에 명시하면 NFR-I1·UX와 정합.
+3. **AC 보완:**
+    - 2.1: 잘못된 날짜 시 검증 메시지 노출을 AC에 추가하면 명확.
+    - 3.3: `/api/chart`, `/api/cards` 실패 시 `{ error, retry }` UI 노출을 AC에 명시하면 NFR-I1·UX와 정합.
 
 ### 6. Best Practices Compliance
 
-| 체크 항목 | 결과 |
-|----------|------|
-| 에픽이 사용자 가치 전달 | ✓ |
-| 에픽 독립성 (N이 N+1 불필요) | ✓ |
-| 스토리 적정 크기 | ✓ |
-| 순방향 의존 없음 | ✓ |
-| DB는 필요 시점에만 생성 | ✓ |
-| AC 명확·검증 가능 | ✓ |
-| FR 추적성 유지 | ✓ |
+| 체크 항목                    | 결과 |
+| ---------------------------- | ---- |
+| 에픽이 사용자 가치 전달      | ✓    |
+| 에픽 독립성 (N이 N+1 불필요) | ✓    |
+| 스토리 적정 크기             | ✓    |
+| 순방향 의존 없음             | ✓    |
+| DB는 필요 시점에만 생성      | ✓    |
+| AC 명확·검증 가능            | ✓    |
+| FR 추적성 유지               | ✓    |
 
 ---
 
@@ -332,7 +336,7 @@ create-epics-and-stories 기준으로 에픽·스토리 품질을 검토함.
 ### Critical Issues Requiring Immediate Action
 
 - **없음.**  
-Critical·Major 위반 없음. 구현 진행 가능.
+  Critical·Major 위반 없음. 구현 진행 가능.
 
 ### Recommended Next Steps
 

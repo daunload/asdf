@@ -81,18 +81,18 @@ json_validation: '{project-root}/_bmad/core/resources/excalidraw/validate-json-i
 ```yaml
 # workflows/excalidraw-diagrams/_shared/flowchart-templates.yaml
 flowchart:
-  start_node:
-    type: ellipse
-    width: 120
-    height: 60
-  process_box:
-    type: rectangle
-    width: 160
-    height: 80
-  decision_diamond:
-    type: diamond
-    width: 140
-    height: 100
+    start_node:
+        type: ellipse
+        width: 120
+        height: 60
+    process_box:
+        type: rectangle
+        width: 160
+        height: 80
+    decision_diamond:
+        type: diamond
+        width: 140
+        height: 100
 ```
 
 ### Example: Presentation Master (Creative Visuals)
@@ -108,13 +108,13 @@ json_validation: '{project-root}/_bmad/core/resources/excalidraw/validate-json-i
 ```yaml
 # workflows/_shared/creative-templates.yaml
 rube_goldberg:
-  whimsical_connector:
-    type: arrow
-    strokeStyle: dashed
-    roughness: 2
-  playful_box:
-    type: rectangle
-    roundness: 12
+    whimsical_connector:
+        type: arrow
+        strokeStyle: dashed
+        roughness: 2
+    playful_box:
+        type: rectangle
+        roundness: 12
 ```
 
 ## What Doesn't Belong in Core

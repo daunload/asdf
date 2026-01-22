@@ -3,13 +3,13 @@ project_name: 'natalchart'
 user_name: 'daun'
 date: '2026-01-21'
 sections_completed:
-  - technology_stack
-  - language_rules
-  - framework_rules
-  - testing_rules
-  - quality_rules
-  - workflow_rules
-  - anti_patterns
+    - technology_stack
+    - language_rules
+    - framework_rules
+    - testing_rules
+    - quality_rules
+    - workflow_rules
+    - anti_patterns
 status: 'complete'
 rule_count: 28
 optimized_for_llm: true
@@ -32,6 +32,7 @@ _이 파일은 AI 에이전트가 구현 시 반드시 따라야 할 규칙과 �
 - **캐시:** 미사용 (Redis 사용 안 함)
 
 **네이탈 차트 (사용자 확정):**
+
 - **`circular-natal-horoscope-js`** — 천체 위치, 하우스, 각도, 별자리 계산. 생년월일·시간·위치 → `Origin`+`Horoscope`. **위치:** `shared/lib/chart`. 서버/라우트에서 사용. `Origin`의 `month`는 0=1월, 11=12월.
 - **`@eaprelsky/nocturna-wheel`** — 원형 차트 SVG 렌더. `WheelChart`에 `planets`, `houses` 등 점성술 데이터 전달. **위치:** 차트를 그리는 클라이언트 컴포넌트 (`widgets` 또는 `entities/natal-chart/ui`). `circular-natal-horoscope-js` 결과를 nocturna-wheel 형식(`planets: { sun: { lon }, ... }`, `houses: [ { lon }, ... ]`)으로 변환해 전달.
 
@@ -80,12 +81,14 @@ _이 파일은 AI 에이전트가 구현 시 반드시 따라야 할 규칙과 �
 ## Usage Guidelines
 
 **For AI Agents:**
+
 - 구현 전 이 파일을 읽을 것.
 - 문서된 규칙을 그대로 따를 것.
 - 애매하면 더 제한적인 쪽을 선택.
 - 새 패턴이 생기면 이 파일을 갱신.
 
 **For Humans:**
+
 - 에이전트용으로만 간결하게 유지.
 - 스택·패턴 변경 시 반영.
 - 주기적으로 검토해 뻔한 규칙은 정리.

@@ -1,16 +1,29 @@
 ---
-stepsCompleted: ["step-01-init", "step-02-discovery", "step-03-success", "step-04-journeys", "step-05-domain", "step-06-innovation", "step-07-project-type", "step-08-scoping", "step-09-functional", "step-10-nonfunctional", "step-11-polish"]
-inputDocuments: ["_bmad-output/analysis/brainstorming-session-2026-01-21.md"]
+stepsCompleted:
+    [
+        'step-01-init',
+        'step-02-discovery',
+        'step-03-success',
+        'step-04-journeys',
+        'step-05-domain',
+        'step-06-innovation',
+        'step-07-project-type',
+        'step-08-scoping',
+        'step-09-functional',
+        'step-10-nonfunctional',
+        'step-11-polish',
+    ]
+inputDocuments: ['_bmad-output/analysis/brainstorming-session-2026-01-21.md']
 briefCount: 0
 researchCount: 0
 brainstormingCount: 1
 projectDocsCount: 0
 workflowType: 'prd'
 classification:
-  projectType: web_app
-  domain: lifestyle
-  complexity: low
-  projectContext: greenfield
+    projectType: web_app
+    domain: lifestyle
+    complexity: low
+    projectContext: greenfield
 ---
 
 # Product Requirements Document - natalchart
@@ -54,9 +67,9 @@ classification:
 
 **전체 14주제:** 기본 성격과 자아의 핵심, 감정 패턴과 무의식 반응, 첫인상과 외부 이미지, 사고방식·소통 스타일·학습 능력, 사랑 방식과 인간관계 가치관, 연애·결혼에서 반복되는 패턴, 행동력·욕망·분노 표현 방식, 재능과 강점이 발휘되는 영역, 직업 적성·커리어 방향·사회적 역할, 돈·자존가치·물질적 안정 추구 방식, 인생의 과제·두려움·성장 포인트, 삶의 큰 변화와 위기 패턴, 영혼의 방향성·인생의 목적, 중요한 인생 사건이 일어나는 타이밍.
 
-| 구분 | 주제 |
-|------|------|
-| **무료(공개)** | 기본 성격과 자아의 핵심, 첫인상과 외부 이미지, 재능과 강점이 발휘되는 영역, 인생의 과제·두려움·성장 포인트 |
+| 구분           | 주제                                                                                                                                                                                                                                                                                                         |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **무료(공개)** | 기본 성격과 자아의 핵심, 첫인상과 외부 이미지, 재능과 강점이 발휘되는 영역, 인생의 과제·두려움·성장 포인트                                                                                                                                                                                                   |
 | **유료(과금)** | 감정 패턴과 무의식 반응, 사고방식·소통 스타일·학습 능력, 사랑 방식과 인간관계 가치관, 연애·결혼에서 반복되는 패턴, 행동력·욕망·분노 표현 방식, 직업 적성·커리어 방향·사회적 역할, 돈·자존가치·물질적 안정 추구 방식, 삶의 큰 변화와 위기 패턴, 영혼의 방향성·인생의 목적, 중요한 인생 사건이 일어나는 타이밍 |
 
 ## Product Scope
@@ -123,13 +136,13 @@ classification:
 
 ### Journey Requirements Summary
 
-| 역량 | 여정 | 요구사항 |
-|------|------|----------|
-| 온보딩 | 1, 4 | 생년월일·시간·장소 입력, "시간 모름" 처리 |
-| 출생차트·카드 | 1, 2, 3 | 출생차트 계산, 14주제별 한 장 카드 생성·노출 |
-| 무료/유료 제어 | 1, 2, 3 | 4주제 무료, 10주제 유료, 주제별 잠금/해금 |
-| 결제 | 2 | 결제·구독, 구매 이력, 접근 제어 |
-| 재방문 | 3 | 로그인·세션, 구매 이력 조회, 무료/유료 분기 |
+| 역량           | 여정    | 요구사항                                     |
+| -------------- | ------- | -------------------------------------------- |
+| 온보딩         | 1, 4    | 생년월일·시간·장소 입력, "시간 모름" 처리    |
+| 출생차트·카드  | 1, 2, 3 | 출생차트 계산, 14주제별 한 장 카드 생성·노출 |
+| 무료/유료 제어 | 1, 2, 3 | 4주제 무료, 10주제 유료, 주제별 잠금/해금    |
+| 결제           | 2       | 결제·구독, 구매 이력, 접근 제어              |
+| 재방문         | 3       | 로그인·세션, 구매 이력 조회, 무료/유료 분기  |
 
 **Admin/Support:** MVP에서는 콘텐츠·과금 설정, 장애 대응 등은 최소 범위. 필요 시 Growth에서 추가.
 
@@ -171,10 +184,10 @@ classification:
 
 ### browser_matrix
 
-| 환경 | 지원 |
-|------|------|
-| 모바일 | iOS Safari (최근 2버전), Android Chrome (최근 2버전) |
-| 데스크톱 | Chrome, Safari, Edge (최근 2버전) |
+| 환경     | 지원                                                 |
+| -------- | ---------------------------------------------------- |
+| 모바일   | iOS Safari (최근 2버전), Android Chrome (최근 2버전) |
+| 데스크톱 | Chrome, Safari, Edge (최근 2버전)                    |
 
 ### responsive_design
 

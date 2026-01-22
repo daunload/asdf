@@ -21,29 +21,30 @@ So that **서비스를 발견하고 진입**할 수 있다.
 ## Tasks / Subtasks
 
 - [x] Task 1: 랜딩 페이지 UI 구현 (AC: Then)
-  - [x] Subtask 1.1: 랜딩 페이지 컴포넌트 구조 설계 (FSD: page-components/landing/ui.tsx)
-  - [x] Subtask 1.2: 서비스 소개 섹션 구현 (제목, 설명 문구)
-  - [x] Subtask 1.3: "시작하기" CTA 버튼 구현 (Base UI Button 사용, 온보딩으로 링크)
-  - [x] Subtask 1.4: 반응형 레이아웃 적용 (모바일 우선, 320~767 / 768~1023 / 1024+ px)
-  - [x] Subtask 1.5: 접근성 확인 (키보드 포커스, 터치 44×44px, 대비 4.5:1)
+    - [x] Subtask 1.1: 랜딩 페이지 컴포넌트 구조 설계 (FSD: page-components/landing/ui.tsx)
+    - [x] Subtask 1.2: 서비스 소개 섹션 구현 (제목, 설명 문구)
+    - [x] Subtask 1.3: "시작하기" CTA 버튼 구현 (Base UI Button 사용, 온보딩으로 링크)
+    - [x] Subtask 1.4: 반응형 레이아웃 적용 (모바일 우선, 320~767 / 768~1023 / 1024+ px)
+    - [x] Subtask 1.5: 접근성 확인 (키보드 포커스, 터치 44×44px, 대비 4.5:1)
 
 - [x] Task 2: 메타데이터 및 OG 태그 설정 (AC: And)
-  - [x] Subtask 2.1: `src/app/layout.tsx`에 기본 metadata 설정
-  - [x] Subtask 2.2: title, description 설정 (SEO 최적화)
-  - [x] Subtask 2.3: openGraph 메타데이터 설정 (og:title, og:description, og:type)
-  - [x] Subtask 2.4: twitter 카드 메타데이터 설정 (twitter:card, twitter:title, twitter:description)
-  - [x] Subtask 2.5: 메타데이터 동작 확인 (빌드 성공, 타입 검사 통과)
+    - [x] Subtask 2.1: `src/app/layout.tsx`에 기본 metadata 설정
+    - [x] Subtask 2.2: title, description 설정 (SEO 최적화)
+    - [x] Subtask 2.3: openGraph 메타데이터 설정 (og:title, og:description, og:type)
+    - [x] Subtask 2.4: twitter 카드 메타데이터 설정 (twitter:card, twitter:title, twitter:description)
+    - [x] Subtask 2.5: 메타데이터 동작 확인 (빌드 성공, 타입 검사 통과)
 
 - [x] Task 3: 성능 최적화 (AC: And - NFR-P1)
-  - [x] Subtask 3.1: LCP 최적화 (불필요한 이미지 제거, 폰트 최적화 유지)
-  - [x] Subtask 3.2: 불필요한 리소스 제거 (기본 Next.js 템플릿 정리)
-  - [x] Subtask 3.3: 빌드 성공 확인 (정적 페이지 생성, LCP 최적화 기반 마련)
+    - [x] Subtask 3.1: LCP 최적화 (불필요한 이미지 제거, 폰트 최적화 유지)
+    - [x] Subtask 3.2: 불필요한 리소스 제거 (기본 Next.js 템플릿 정리)
+    - [x] Subtask 3.3: 빌드 성공 확인 (정적 페이지 생성, LCP 최적화 기반 마련)
 
 ## Dev Notes
 
 ### Architecture Compliance
 
 **FSD 구조:**
+
 - 랜딩 페이지는 `src/pages/landing/ui.tsx`에 구현
 - `src/app/page.tsx`에서 `pages/landing` 컴포넌트 import
 - Base UI Button은 `@/shared/ui`에서 import
@@ -53,11 +54,13 @@ So that **서비스를 발견하고 진입**할 수 있다.
 ### Technical Requirements
 
 **Next.js 메타데이터:**
+
 - `metadata` 객체를 `layout.tsx` 또는 `page.tsx`에서 export
 - `Metadata` 타입 사용 (Next.js 제공)
 - `openGraph`, `twitter` 속성 포함
 
 **성능 요구사항:**
+
 - LCP (Largest Contentful Paint) 2.5초 이내
 - 이미지 최적화 (Next.js Image 컴포넌트 사용)
 - 폰트 최적화 (next/font 사용)
@@ -67,6 +70,7 @@ So that **서비스를 발견하고 진입**할 수 있다.
 ### UX Design Requirements
 
 **랜딩 페이지 디자인:**
+
 - 밝고 현대적인 톤
 - 서비스 소개: "출생 차트와 LLM 해석을 한 화면에 한 주제로 제공"
 - CTA: "시작하기" 버튼 (온보딩으로 링크)
@@ -74,6 +78,7 @@ So that **서비스를 발견하고 진입**할 수 있다.
 - 스크롤 없이 한 화면에 모든 내용 표시
 
 **접근성:**
+
 - 키보드 포커스 가능
 - 터치 타겟 44×44px 이상
 - 색상 대비 4.5:1 이상
@@ -84,6 +89,7 @@ So that **서비스를 발견하고 진입**할 수 있다.
 ### File Structure Requirements
 
 **생성/수정할 파일:**
+
 ```
 src/
 ├── app/
@@ -102,27 +108,31 @@ src/
 ### Library & Framework Requirements
 
 **사용할 패키지:**
+
 - Next.js 16.1.4 (이미 설치됨)
 - Base UI Button (`@/shared/ui/button`)
 - Next.js Image 컴포넌트 (이미지 최적화)
 - next/font (폰트 최적화)
 
 **메타데이터 형식:**
+
 ```typescript
 export const metadata: Metadata = {
-  title: 'natalchart - 출생 차트와 LLM 해석',
-  description: '출생 차트와 LLM 해석을 한 화면에 한 주제로 제공하는 서비스',
-  openGraph: {
-    title: 'natalchart - 출생 차트와 LLM 해석',
-    description: '출생 차트와 LLM 해석을 한 화면에 한 주제로 제공하는 서비스',
-    type: 'website',
-    // og:image는 이후 추가 가능
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'natalchart - 출생 차트와 LLM 해석',
-    description: '출생 차트와 LLM 해석을 한 화면에 한 주제로 제공하는 서비스',
-  },
+	title: 'natalchart - 출생 차트와 LLM 해석',
+	description: '출생 차트와 LLM 해석을 한 화면에 한 주제로 제공하는 서비스',
+	openGraph: {
+		title: 'natalchart - 출생 차트와 LLM 해석',
+		description:
+			'출생 차트와 LLM 해석을 한 화면에 한 주제로 제공하는 서비스',
+		type: 'website',
+		// og:image는 이후 추가 가능
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'natalchart - 출생 차트와 LLM 해석',
+		description:
+			'출생 차트와 LLM 해석을 한 화면에 한 주제로 제공하는 서비스',
+	},
 };
 ```
 
@@ -130,21 +140,23 @@ export const metadata: Metadata = {
 
 - 이 스토리에서는 테스트 프레임워크 설정은 포함하지 않음
 - 브라우저에서 수동 확인:
-  - 랜딩 페이지 UI 표시
-  - "시작하기" 버튼 클릭 시 온보딩으로 이동
-  - 메타데이터 확인 (브라우저 개발자 도구)
-  - SNS 공유 미리보기 확인 (Facebook Debugger, Twitter Card Validator 등)
+    - 랜딩 페이지 UI 표시
+    - "시작하기" 버튼 클릭 시 온보딩으로 이동
+    - 메타데이터 확인 (브라우저 개발자 도구)
+    - SNS 공유 미리보기 확인 (Facebook Debugger, Twitter Card Validator 등)
 
 **Source:** [Architecture: Testing Standards](_bmad-output/planning-artifacts/architecture.md#testing-standards)
 
 ### Project Structure Notes
 
 **FSD 레이어 사용:**
+
 - `pages/landing/ui.tsx`: 랜딩 페이지 컴포넌트
 - `app/page.tsx`: Next.js 라우트, `pages/landing` import
 - `shared/ui/button`: Base UI Button 래퍼 (이미 생성됨)
 
 **라우팅:**
+
 - 랜딩 페이지는 `/` (루트)에 위치
 - 온보딩 페이지는 다음 스토리에서 구현 (`/onboarding`)
 
@@ -153,15 +165,18 @@ export const metadata: Metadata = {
 ### Critical Don't-Miss Rules
 
 **FSD 위반 금지:**
+
 - `pages/landing`은 `shared/ui`만 import 가능
 - `app/page.tsx`는 `pages/landing`만 import 가능
 
 **성능:**
+
 - LCP 2.5초 이내 달성 필수
 - 불필요한 리소스 로딩 방지
 - 이미지는 Next.js Image 컴포넌트 사용
 
 **접근성:**
+
 - 모든 인터랙티브 요소는 키보드로 접근 가능
 - 터치 타겟 44×44px 이상
 - 색상 대비 4.5:1 이상
@@ -171,19 +186,23 @@ export const metadata: Metadata = {
 ### References
 
 **Epic 및 스토리 정의:**
+
 - [Epic 1: 프로젝트 기반 및 랜딩](_bmad-output/planning-artifacts/epics.md#epic-1-프로젝트-기반-및-랜딩)
 - [Story 1.2: 랜딩 페이지 및 메타·OG](_bmad-output/planning-artifacts/epics.md#story-12-랜딩-페이지-및-메타og)
 
 **PRD:**
+
 - [FR31: 랜딩 페이지 진입](_bmad-output/planning-artifacts/prd.md)
 - [FR32: 메타·OG 태그](_bmad-output/planning-artifacts/prd.md)
 - [NFR-P1: LCP 2.5초 이내](_bmad-output/planning-artifacts/prd.md)
 
 **UX 설계:**
+
 - [UX Design: Visual Design Foundation](_bmad-output/planning-artifacts/ux-design-specification.md#visual-design-foundation)
 - [UX Design: User Journey Flows](_bmad-output/planning-artifacts/ux-design-specification.md#user-journey-flows)
 
 **프로젝트 컨텍스트:**
+
 - [Project Context: Framework-Specific Rules](_bmad-output/project-context.md#framework-specific-rules)
 
 ## Dev Agent Record
@@ -208,13 +227,16 @@ N/A (구현 전)
 ### File List
 
 **생성된 파일:**
+
 - `src/page-components/landing/ui.tsx` - 랜딩 페이지 컴포넌트
 
 **수정된 파일:**
+
 - `src/app/page.tsx` - 랜딩 페이지 라우트 (page-components import)
 - `src/app/layout.tsx` - 메타데이터 설정 (title, description, openGraph, twitter), lang="ko"
 - `next.config.ts` - Next.js 설정 (pageExtensions 명시)
 
 **참고:**
+
 - Next.js Pages Router와의 충돌을 피하기 위해 FSD의 `pages` 레이어를 `page-components`로 변경
 - 이는 FSD 구조를 유지하면서 Next.js App Router와 호환되도록 한 조치

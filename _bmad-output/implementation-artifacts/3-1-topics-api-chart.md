@@ -20,30 +20,31 @@ So that **출생 정보를 차트 데이터로 변환**해 LLM·카드 생성에
 ## Tasks / Subtasks
 
 - [x] Task 1: topics 설정 파일 생성
-  - [x] Subtask 1.1: `src/shared/config/topics.ts` 파일 생성
-  - [x] Subtask 1.2: 14개 주제 정의 (ID, 이름, 무료/유료 구분)
-  - [x] Subtask 1.3: 무료 4주제 목록 export (freeTopics)
-  - [x] Subtask 1.4: 유료 10주제 목록 export (paidTopics)
-  - [x] Subtask 1.5: 전체 주제 목록 export (topics, getTopicById, isFreeTopic)
+    - [x] Subtask 1.1: `src/shared/config/topics.ts` 파일 생성
+    - [x] Subtask 1.2: 14개 주제 정의 (ID, 이름, 무료/유료 구분)
+    - [x] Subtask 1.3: 무료 4주제 목록 export (freeTopics)
+    - [x] Subtask 1.4: 유료 10주제 목록 export (paidTopics)
+    - [x] Subtask 1.5: 전체 주제 목록 export (topics, getTopicById, isFreeTopic)
 
 - [x] Task 2: circular-natal-horoscope-js 설치 및 설정
-  - [x] Subtask 2.1: `circular-natal-horoscope-js` 패키지 설치
-  - [x] Subtask 2.2: `src/shared/lib/chart/` 폴더 생성
-  - [x] Subtask 2.3: 차트 계산 유틸리티 함수 생성 (calculateChart)
+    - [x] Subtask 2.1: `circular-natal-horoscope-js` 패키지 설치
+    - [x] Subtask 2.2: `src/shared/lib/chart/` 폴더 생성
+    - [x] Subtask 2.3: 차트 계산 유틸리티 함수 생성 (calculateChart)
 
 - [x] Task 3: /api/chart Route Handler 구현
-  - [x] Subtask 3.1: `src/app/api/chart/route.ts` 파일 생성
-  - [x] Subtask 3.2: POST 요청 처리 (쿠키에서 출생 정보 읽기)
-  - [x] Subtask 3.3: 출생차트 계산 로직 구현
-  - [x] Subtask 3.4: "시간 모름" 처리 (기본값 12:00)
-  - [x] Subtask 3.5: 에러 처리 (`{ error, code?, retry? }` 형식)
-  - [x] Subtask 3.6: 차트 데이터 JSON 반환
+    - [x] Subtask 3.1: `src/app/api/chart/route.ts` 파일 생성
+    - [x] Subtask 3.2: POST 요청 처리 (쿠키에서 출생 정보 읽기)
+    - [x] Subtask 3.3: 출생차트 계산 로직 구현
+    - [x] Subtask 3.4: "시간 모름" 처리 (기본값 12:00)
+    - [x] Subtask 3.5: 에러 처리 (`{ error, code?, retry? }` 형식)
+    - [x] Subtask 3.6: 차트 데이터 JSON 반환
 
 ## Dev Notes
 
 ### Architecture Compliance
 
 **FSD 구조:**
+
 - topics 설정은 `src/shared/config/topics.ts`에 구현
 - 차트 계산 유틸리티는 `src/shared/lib/chart/`에 구현
 - API Route Handler는 `src/app/api/chart/route.ts`에 구현
@@ -53,11 +54,13 @@ So that **출생 정보를 차트 데이터로 변환**해 LLM·카드 생성에
 ### Technical Requirements
 
 **주제 정의:**
+
 - 14개 주제: ID, 이름, 무료/유료 구분
 - 무료 4주제: 기본 성격과 자아의 핵심, 첫인상과 외부 이미지, 재능과 강점이 발휘되는 영역, 인생의 과제·두려움·성장 포인트
 - 유료 10주제: 감정 패턴과 무의식 반응, 사고방식·소통 스타일·학습 능력, 사랑 방식과 인간관계 가치관, 연애·결혼에서 반복되는 패턴, 행동력·욕망·분노 표현 방식, 직업 적성·커리어 방향·사회적 역할, 돈·자존가치·물질적 안정 추구 방식, 삶의 큰 변화와 위기 패턴, 영혼의 방향성·인생의 목적, 중요한 인생 사건이 일어나는 타이밍
 
 **출생차트 계산:**
+
 - `circular-natal-horoscope-js` 라이브러리 사용
 - 생년월일, 시간, 장소를 입력으로 받음
 - "시간 모름" 시 기본값 12:00 사용 또는 제한 모드
@@ -67,10 +70,12 @@ So that **출생 정보를 차트 데이터로 변환**해 LLM·카드 생성에
 ### Library & Framework Requirements
 
 **필수 패키지:**
+
 - `circular-natal-horoscope-js` - 출생차트 계산 라이브러리
 - Next.js 16.1.4 (이미 설치됨)
 
 **API 응답 형식:**
+
 - 성공: 차트 데이터 객체
 - 에러: `{ error: string, code?: string, retry?: boolean }`
 
@@ -79,6 +84,7 @@ So that **출생 정보를 차트 데이터로 변환**해 LLM·카드 생성에
 ### File Structure Requirements
 
 **생성할 파일:**
+
 ```
 src/
 ├── shared/
@@ -99,17 +105,18 @@ src/
 
 - 이 스토리에서는 테스트 프레임워크 설정은 포함하지 않음
 - 브라우저/Postman에서 수동 확인:
-  - `/api/chart` POST 요청 테스트
-  - 쿠키에서 출생 정보 읽기 확인
-  - 차트 계산 결과 확인
-  - "시간 모름" 처리 확인
-  - 에러 응답 확인
+    - `/api/chart` POST 요청 테스트
+    - 쿠키에서 출생 정보 읽기 확인
+    - 차트 계산 결과 확인
+    - "시간 모름" 처리 확인
+    - 에러 응답 확인
 
 **Source:** [Architecture: Testing Standards](_bmad-output/planning-artifacts/architecture.md#testing-standards)
 
 ### Project Structure Notes
 
 **FSD 레이어 사용:**
+
 - `shared/config/topics.ts`: 주제 설정 (FSD shared 레이어)
 - `shared/lib/chart/`: 차트 계산 유틸리티 (FSD shared 레이어)
 - `app/api/chart/route.ts`: API Route Handler (Next.js App Router)
@@ -119,13 +126,16 @@ src/
 ### Critical Don't-Miss Rules
 
 **FSD 위반 금지:**
+
 - `shared`는 `entities` 이상을 import하지 않음
 
 **에러 형식:**
+
 - API 에러는 `{ error, code?, retry? }` 형식으로 반환
 - `{ message }`만 사용하지 않음
 
 **출생차트 라이브러리:**
+
 - `circular-natal-horoscope-js`의 `Origin.month`는 0-based (0=1월, 11=12월)
 - "시간 모름" 처리 시 기본값 또는 제한 모드 문서화
 
@@ -134,16 +144,19 @@ src/
 ### References
 
 **Epic 및 스토리 정의:**
+
 - [Epic 3: 출생차트·해석 생성 및 무료 카드 열람](_bmad-output/planning-artifacts/epics.md#epic-3-출생차트해석-생성-및-무료-카드-열람)
 - [Story 3.1: topics 설정 및 /api/chart](_bmad-output/planning-artifacts/epics.md#story-31-topics-설정-및-apichart)
 
 **PRD:**
+
 - [FR6: 출생 정보를 출생차트 계산에 사용](_bmad-output/planning-artifacts/prd.md)
 - [FR7: 출생차트 계산](_bmad-output/planning-artifacts/prd.md)
 - [FR12: "시간 모름" 시 제한된 해석](_bmad-output/planning-artifacts/prd.md)
 - [해석 주제 및 무료/유료 구분](_bmad-output/planning-artifacts/prd.md#해석-주제-및-무료유료-구분)
 
 **프로젝트 컨텍스트:**
+
 - [Project Context: Technology Stack](_bmad-output/project-context.md#technology-stack--versions)
 
 ## Dev Agent Record
@@ -173,11 +186,13 @@ N/A (구현 전)
 ### File List
 
 **생성된 파일:**
+
 - `src/shared/config/topics.ts` - 14개 주제 설정 (무료 4/유료 10)
 - `src/shared/lib/chart/calculate.ts` - 차트 계산 유틸리티
 - `src/app/api/chart/route.ts` - /api/chart Route Handler
 
 **기술적 해결 사항:**
+
 - circular-natal-horoscope-js의 Horoscope 클래스 속성 사용 (CelestialBodies, Houses, Aspects, Ascendant, Midheaven)
 - Origin.month는 0-based (0=1월, 11=12월) 처리
 - 장소 이름을 위도/경도로 변환 (임시 매핑, 향후 지오코딩 API로 개선 가능)

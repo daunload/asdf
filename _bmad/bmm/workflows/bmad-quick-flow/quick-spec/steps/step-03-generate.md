@@ -51,9 +51,9 @@ b) **Task Format**
 
 ```markdown
 - [ ] Task N: Clear action description
-  - File: `path/to/file.ext`
-  - Action: Specific change to make
-  - Notes: Any implementation details
+    - File: `path/to/file.ext`
+    - Action: Specific change to make
+    - Notes: Any implementation details
 ```
 
 ### 3. Generate Acceptance Criteria

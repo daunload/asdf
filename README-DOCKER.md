@@ -3,8 +3,8 @@
 ## 사전 요구사항
 
 1. **Docker Desktop 설치 및 실행**
-   - [Docker Desktop 다운로드](https://www.docker.com/products/docker-desktop/)
-   - Docker Desktop을 설치하고 실행하세요.
+    - [Docker Desktop 다운로드](https://www.docker.com/products/docker-desktop/)
+    - Docker Desktop을 설치하고 실행하세요.
 
 ## 설정 방법
 
@@ -69,18 +69,23 @@ docker-compose exec postgres psql -U natalchart -d natalchart
 ## 문제 해결
 
 ### Docker Desktop이 실행되지 않는 경우
+
 - Docker Desktop을 시작하세요.
 - Windows의 경우 WSL 2가 필요할 수 있습니다.
 
 ### 포트 5432가 이미 사용 중인 경우
+
 `docker-compose.yml`에서 포트를 변경하세요:
+
 ```yaml
 ports:
-  - '5433:5432'  # 호스트 포트를 5433으로 변경
+    - '5433:5432' # 호스트 포트를 5433으로 변경
 ```
+
 그리고 `.env`의 `DATABASE_URL`도 포트를 5433으로 변경하세요.
 
 ### 데이터베이스 연결 오류
+
 - Docker 컨테이너가 실행 중인지 확인: `docker-compose ps`
 - 컨테이너 로그 확인: `docker-compose logs postgres`
 - 환경 변수 확인: `.env` 파일의 `DATABASE_URL`이 올바른지 확인
