@@ -16,11 +16,11 @@ export function Header() {
 	};
 
 	return (
-		<header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-sm dark:border-gray-800 dark:bg-black/80">
+		<header className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/20 backdrop-blur-sm">
 			<div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
 				{/* 로고/홈 링크 */}
 				<Link href="/" className="flex items-center space-x-2">
-					<span className="text-xl font-semibold text-black dark:text-zinc-50">
+					<span className="text-xl font-semibold text-white">
 						natalchart
 					</span>
 				</Link>
@@ -32,7 +32,7 @@ export function Header() {
 					) : isAuthenticated ? (
 						<>
 							{/* 로그인된 사용자 */}
-							<span className="text-sm text-zinc-600 dark:text-zinc-400">
+							<span className="text-sm text-zinc-300">
 								{session.user?.name ||
 									session.user?.email ||
 									'사용자'}
@@ -41,7 +41,7 @@ export function Header() {
 								onClick={handleSignOut}
 								size="sm"
 								variant="ghost"
-								className="min-h-[36px]"
+								className="min-h-[36px] text-white hover:bg-white/10"
 							>
 								로그아웃
 							</Button>

@@ -43,15 +43,15 @@ export function LoginPage() {
 	};
 
 	return (
-		<div className="flex min-h-screen flex-col items-center justify-center bg-white px-4 py-16 dark:bg-black sm:px-6 lg:px-8">
+		<div className="flex min-h-screen flex-col items-center justify-center px-4 py-16 sm:px-6 lg:px-8">
 			<main className="mx-auto w-full max-w-md">
 				<div className="space-y-8">
 					{/* 제목 */}
 					<div className="text-center">
-						<h1 className="text-3xl font-semibold leading-tight tracking-tight text-black dark:text-zinc-50 sm:text-4xl">
+						<h1 className="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
 							로그인
 						</h1>
-						<p className="mt-4 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+						<p className="mt-4 text-lg leading-8 text-zinc-300">
 							계정에 로그인하여 더 많은 기능을 이용하세요
 						</p>
 					</div>
@@ -111,7 +111,7 @@ export function LoginPage() {
 							)}
 						</Button>
 
-						<p className="text-center text-sm text-zinc-500 dark:text-zinc-400">
+						<p className="text-center text-sm text-zinc-400">
 							로그인하면 서비스 이용약관 및 개인정보처리방침에
 							동의하는 것으로 간주됩니다.
 						</p>
@@ -123,7 +123,7 @@ export function LoginPage() {
 							onClick={() => router.push('/')}
 							size="md"
 							variant="ghost"
-							className="min-h-[44px]"
+							className="min-h-[44px] text-zinc-400 hover:text-white"
 						>
 							뒤로 가기
 						</Button>

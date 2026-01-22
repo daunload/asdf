@@ -37,31 +37,42 @@ export function Card({
 	return (
 		<article
 			className={cn(
-				'flex min-h-[400px] flex-col items-center justify-center space-y-6 rounded-lg border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-800 dark:bg-gray-950',
+				'flex min-h-[400px] flex-col items-center justify-center space-y-6 rounded-2xl p-8',
+				'border border-transparent bg-clip-border',
+				'shadow-[0_0_30px_rgba(124,58,237,0.15)] transition-transform duration-300 hover:scale-[1.02]',
 				className,
 			)}
+			style={{
+				background: `
+					linear-gradient(#020617, #020617) padding-box,
+					linear-gradient(to bottom right, var(--celestial-violet), var(--celestial-blue)) border-box
+				`,
+			}}
 			role="article"
 			aria-label={`${topicName || '카드'} ${currentIndex + 1}번째`}
 		>
 			{/* 심볼 */}
-			<div className="text-6xl" aria-hidden="true">
+			<div
+				className="text-6xl drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+				aria-hidden="true"
+			>
 				{card.symbol}
 			</div>
 
 			{/* 주제명 (선택) */}
 			{topicName && (
-				<h2 className="text-xl font-semibold text-black dark:text-zinc-50">
+				<h2 className="text-xl font-bold text-white drop-shadow-md">
 					{topicName}
 				</h2>
 			)}
 
 			{/* 본문 (1~2문장) */}
-			<p className="text-center text-base leading-relaxed text-zinc-700 dark:text-zinc-300">
+			<p className="text-center text-base leading-relaxed text-zinc-300">
 				{card.body}
 			</p>
 
 			{/* 진행 표시 (선택) */}
-			<div className="text-sm text-zinc-500 dark:text-zinc-400">
+			<div className="text-sm text-zinc-500">
 				{currentIndex + 1} / {totalCount}
 			</div>
 
@@ -106,8 +117,9 @@ export function LockedCard({
 	return (
 		<article
 			className={cn(
-				'relative flex min-h-[400px] flex-col items-center justify-center space-y-6 rounded-lg border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-800 dark:bg-gray-950',
-				'overflow-hidden',
+				'relative flex min-h-[400px] flex-col items-center justify-center space-y-6 rounded-2xl p-8',
+				'overflow-hidden border border-white/10 bg-black/80',
+				'shadow-[0_0_20px_rgba(124,58,237,0.1)]',
 				className,
 			)}
 			role="article"
@@ -115,44 +127,42 @@ export function LockedCard({
 		>
 			{/* 블러 배경 */}
 			<div
-				className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800"
+				className="absolute inset-0 bg-gradient-to-br from-black to-zinc-900"
 				style={{
-					filter: 'blur(20px)',
-					opacity: 0.8,
+					opacity: 0.9,
 				}}
 				aria-hidden="true"
 			/>
 
-			{/* 오버레이 */}
-			<div
-				className="absolute inset-0 bg-white/60 dark:bg-black/60"
-				aria-hidden="true"
-			/>
+			{/* Celestial Glow Blobs for Locked State */}
+			<div className="absolute top-0 right-0 h-40 w-40 rounded-full bg-celestial-violet/20 blur-[50px]" />
+			<div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-celestial-blue/20 blur-[50px]" />
 
 			{/* 콘텐츠 */}
 			<div className="relative z-10 flex flex-col items-center space-y-6 text-center">
 				{/* 자물쇠 아이콘 */}
-				<div className="text-6xl" aria-hidden="true">
+				<div
+					className="text-6xl grayscale transition-all duration-500 hover:grayscale-0"
+					aria-hidden="true"
+				>
 					🔒
 				</div>
 
 				{/* 주제명 */}
-				<h2 className="text-xl font-semibold text-black dark:text-zinc-50">
-					{topicName}
-				</h2>
+				<h2 className="text-xl font-bold text-white">{topicName}</h2>
 
 				{/* 잠금 안내 문구 */}
 				<div className="space-y-2">
-					<p className="text-base font-medium text-zinc-900 dark:text-zinc-100">
+					<p className="text-base font-medium text-celestial-violet drop-shadow-sm">
 						이 카드를 보려면 해금이 필요해요
 					</p>
-					<p className="text-sm text-zinc-600 dark:text-zinc-400">
+					<p className="text-sm text-zinc-400">
 						더 깊은 해석을 확인하려면 결제가 필요합니다.
 					</p>
 				</div>
 
 				{/* 진행 표시 */}
-				<div className="text-sm text-zinc-500 dark:text-zinc-400">
+				<div className="text-sm text-zinc-600">
 					{currentIndex + 1} / {totalCount}
 				</div>
 
@@ -163,7 +173,7 @@ export function LockedCard({
 							onClick={onUnlock}
 							size="lg"
 							variant="default"
-							className="min-h-[44px] w-full"
+							className="min-h-[44px] w-full bg-linear-to-r from-celestial-violet to-indigo-500 shadow-[0_0_15px_rgba(124,58,237,0.4)]"
 							aria-label={`${topicName} 해금하기`}
 						>
 							해금하기
@@ -173,8 +183,8 @@ export function LockedCard({
 						<Button
 							onClick={onNext}
 							size="md"
-							variant="outline"
-							className="min-h-[44px] w-full"
+							variant="ghost"
+							className="min-h-[44px] w-full text-zinc-400 hover:text-white"
 							aria-label={`다음 카드 보기 (${currentIndex + 2}번째)`}
 						>
 							다음 카드

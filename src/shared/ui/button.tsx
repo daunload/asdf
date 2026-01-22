@@ -23,19 +23,24 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 			<BaseButton
 				ref={ref}
 				className={cn(
-					'inline-flex items-center justify-center rounded-md font-medium transition-colors',
-					'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+					'relative inline-flex items-center justify-center rounded-md font-bold transition-all duration-300',
+					'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neon-lime',
 					'disabled:pointer-events-none disabled:opacity-50',
 					{
-						'bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200':
+						// Default: Celestial Gradient Background + Glow
+						'bg-linear-to-r from-celestial-violet to-celestial-blue text-white shadow-[0_0_20px_rgba(124,58,237,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] hover:scale-105 active:scale-95':
 							variant === 'default',
-						'border border-gray-300 bg-transparent hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800':
+
+						// Outline: Gradient Border Effect
+						'bg-transparent text-white border border-celestial-blue/50 hover:border-celestial-blue hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:bg-celestial-blue/10':
 							variant === 'outline',
-						'hover:bg-gray-100 dark:hover:bg-gray-800':
-							variant === 'ghost',
-						'h-9 px-3 text-sm': size === 'sm',
-						'h-11 px-4 text-base': size === 'md',
-						'h-12 px-6 text-lg': size === 'lg',
+
+						// Ghost: Simple hover
+						'hover:bg-white/10 text-white': variant === 'ghost',
+
+						'h-9 px-4 text-sm': size === 'sm',
+						'h-11 px-6 text-base': size === 'md',
+						'h-14 px-8 text-lg': size === 'lg',
 					},
 					className,
 				)}

@@ -22,15 +22,15 @@ export function CardsPage() {
 	// Loading State
 	if (isLoading) {
 		return (
-			<div className="flex min-h-screen flex-col items-center justify-center bg-white px-4 py-16 dark:bg-black sm:px-6 lg:px-8">
+			<div className="flex min-h-screen flex-col items-center justify-center bg-black px-4 py-16 sm:px-6 lg:px-8">
 				<main className="mx-auto w-full max-w-md text-center">
 					<div className="space-y-8">
 						<Spinner label="해석을 만들고 있어요">
 							<div className="space-y-2">
-								<h2 className="text-xl font-semibold text-black dark:text-zinc-50">
+								<h2 className="text-xl font-semibold text-white">
 									해석을 만들고 있어요
 								</h2>
-								<p className="text-base text-zinc-600 dark:text-zinc-400">
+								<p className="text-base text-zinc-400">
 									출생차트를 계산하고 카드를 생성하는
 									중입니다...
 								</p>
@@ -45,7 +45,7 @@ export function CardsPage() {
 	// Error State
 	if (error) {
 		return (
-			<div className="flex min-h-screen flex-col items-center justify-center bg-white px-4 py-16 dark:bg-black sm:px-6 lg:px-8">
+			<div className="flex min-h-screen flex-col items-center justify-center bg-black px-4 py-16 sm:px-6 lg:px-8">
 				<main className="mx-auto w-full max-w-md">
 					<ErrorMessage
 						message={error.message}
@@ -69,9 +69,9 @@ export function CardsPage() {
 	// Empty State
 	if (cards.length === 0) {
 		return (
-			<div className="flex min-h-screen flex-col items-center justify-center bg-white px-4 py-16 dark:bg-black sm:px-6 lg:px-8">
+			<div className="flex min-h-screen flex-col items-center justify-center bg-black px-4 py-16 sm:px-6 lg:px-8">
 				<main className="mx-auto w-full max-w-md text-center">
-					<p className="text-base text-zinc-600 dark:text-zinc-400">
+					<p className="text-base text-zinc-400">
 						카드를 불러올 수 없습니다.
 					</p>
 					<Button
@@ -93,8 +93,17 @@ export function CardsPage() {
 	const isLastCard = currentIndex === totalCards - 1;
 
 	return (
-		<div className="flex min-h-screen flex-col items-center justify-center bg-white px-4 py-16 dark:bg-black sm:px-6 lg:px-8">
-			<main className="mx-auto w-full max-w-md">
+		<div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 py-16 sm:px-6 lg:px-8">
+			{/* Ambient Light for Cards Page */}
+			<div
+				className="pointer-events-none absolute left-0 top-1/4 h-[500px] w-[500px] -translate-x-1/3 -translate-y-1/2 opacity-30 blur-[100px]"
+				style={{
+					background:
+						'radial-gradient(circle, var(--celestial-violet) 0%, transparent 70%)',
+				}}
+			/>
+
+			<main className="relative z-10 mx-auto w-full max-w-md">
 				<div
 					key={currentIndex}
 					className="animate-in fade-in slide-in-from-right-4 duration-300"
@@ -129,10 +138,10 @@ export function CardsPage() {
 				{/* Last Card Message */}
 				{isLastCard && (
 					<div className="mt-6 text-center">
-						<p className="text-sm text-zinc-500 dark:text-zinc-400">
+						<p className="text-sm text-zinc-400">
 							모든 카드를 확인하셨습니다.
 						</p>
-						<p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
+						<p className="mt-2 text-sm text-zinc-400">
 							유료 주제를 해금하여 더 깊은 해석을 확인하세요.
 						</p>
 					</div>
