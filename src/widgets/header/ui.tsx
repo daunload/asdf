@@ -2,12 +2,11 @@
 
 import { useSession, signOut } from 'next-auth/react';
 import Link from 'next/link';
-import { Button } from '@/shared/ui/button';
 import { useRouter } from 'next/navigation';
 
 export function Header() {
 	const { data: session, status } = useSession();
-	const router = useRouter();
+	const router = useRouter(); // kept for potential future use
 	const isLoading = status === 'loading';
 	const isAuthenticated = !!session;
 
@@ -16,51 +15,75 @@ export function Header() {
 	};
 
 	return (
-		<header className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/20 backdrop-blur-sm">
-			<div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-				{/* 로고/홈 링크 */}
-				<Link href="/" className="flex items-center space-x-2">
-					<span className="text-xl font-semibold text-white">
-						natalchart
-					</span>
-				</Link>
-
-				{/* 네비게이션 */}
-				<nav className="flex items-center space-x-4">
+		<header className="w-full border-b border-solid border-white/10 px-6 py-4 sticky top-0 z-50 glass-effect">
+			<div className="max-w-7xl mx-auto flex items-center justify-between">
+				<div className="flex items-center gap-3">
+					<div className="text-accent-gold">
+						<span className="material-symbols-outlined text-3xl">
+							auto_awesome
+						</span>
+					</div>
+					<h2 className="text-white text-xl font-extrabold tracking-tight">
+						<Link href="/">CosmicAI</Link>
+					</h2>
+				</div>
+				<nav className="hidden md:flex flex-1 justify-center gap-10">
+					<Link
+						className="text-white/80 hover:text-accent-gold text-sm font-medium transition-colors"
+						href="/analysis"
+					>
+						출생 차트
+					</Link>
+					<Link
+						className="text-white/80 hover:text-accent-gold text-sm font-medium transition-colors"
+						href="#"
+					>
+						운세 리포트
+					</Link>
+					<Link
+						className="text-white/80 hover:text-accent-gold text-sm font-medium transition-colors"
+						href="#"
+					>
+						궁합
+					</Link>
+					<Link
+						className="text-white/80 hover:text-accent-gold text-sm font-medium transition-colors"
+						href="#"
+					>
+						소개
+					</Link>
+				</nav>
+				<div className="flex items-center gap-4">
 					{isLoading ? (
-						<div className="h-9 w-20 animate-pulse rounded-md bg-gray-200 dark:bg-gray-800" />
+						<div className="h-9 w-20 animate-pulse rounded-md bg-white/10" />
 					) : isAuthenticated ? (
 						<>
-							{/* 로그인된 사용자 */}
-							<span className="text-sm text-zinc-300">
+							<span className="text-sm text-white/60 hidden sm:inline-block">
 								{session.user?.name ||
 									session.user?.email ||
-									'사용자'}
+									'User'}
 							</span>
-							<Button
+							<button
 								onClick={handleSignOut}
-								size="sm"
-								variant="ghost"
-								className="min-h-[36px] text-white hover:bg-white/10"
+								className="text-white text-sm font-medium px-4 py-2 hover:text-white/80 transition-colors"
 							>
 								로그아웃
-							</Button>
+							</button>
 						</>
 					) : (
 						<>
-							{/* 비로그인 사용자 */}
-							<Link href="/auth/login">
-								<Button
-									size="sm"
-									variant="default"
-									className="min-h-[36px]"
-								>
-									로그인
-								</Button>
+							<Link
+								href="/auth/login"
+								className="text-white text-sm font-medium px-4 py-2"
+							>
+								로그인
 							</Link>
+							<button className="bg-primary hover:bg-primary/80 transition-all text-white text-sm font-bold px-6 py-2 rounded-lg shadow-lg shadow-primary/20">
+								시작하기
+							</button>
 						</>
 					)}
-				</nav>
+				</div>
 			</div>
 		</header>
 	);
