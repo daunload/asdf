@@ -42,12 +42,12 @@ function getCoordinatesFromPlace(place: string): {
 } {
 	// 임시로 주요 도시 매핑 (실제로는 지오코딩 API 사용)
 	const cityMap: Record<string, { latitude: number; longitude: number }> = {
-		서울: { latitude: 37.5665, longitude: 126.978 },
-		부산: { latitude: 35.1796, longitude: 129.0756 },
-		대구: { latitude: 35.8714, longitude: 128.6014 },
-		인천: { latitude: 37.4563, longitude: 126.7052 },
-		광주: { latitude: 35.1595, longitude: 126.8526 },
-		대전: { latitude: 36.3504, longitude: 127.3845 },
+		'서울': { latitude: 37.5665, longitude: 126.978 },
+		'부산': { latitude: 35.1796, longitude: 129.0756 },
+		'대구': { latitude: 35.8714, longitude: 128.6014 },
+		'인천': { latitude: 37.4563, longitude: 126.7052 },
+		'광주': { latitude: 35.1595, longitude: 126.8526 },
+		'대전': { latitude: 36.3504, longitude: 127.3845 },
 		'New York': { latitude: 40.7128, longitude: -74.006 },
 		'Los Angeles': { latitude: 34.0522, longitude: -118.2437 },
 		London: { latitude: 51.5074, longitude: -0.1278 },

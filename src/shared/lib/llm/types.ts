@@ -2,6 +2,19 @@
  * LLM API 관련 타입 정의
  */
 
+/**
+ * 지원되는 LLM 프로바이더
+ */
+export type LLMProvider = 'openai' | 'gemini';
+
+/**
+ * LLM 설정
+ */
+export interface LLMConfig {
+	provider: LLMProvider;
+	apiKey: string;
+}
+
 export interface Card {
 	topicId: string;
 	symbol: string; // 이모지 또는 심볼 문자
