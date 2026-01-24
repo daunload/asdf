@@ -52,10 +52,10 @@ Run `/bmad:bmm:workflows:sprint-planning` to generate it, then rerun sprint-stat
 - Valid epic statuses: backlog, in-progress, done, contexted (legacy)
 - Valid retrospective statuses: optional, done
 
-    <check if="any status is unrecognized">
-      <output>
-  ⚠️ **Unknown status detected:**
-  {{#each invalid_entries}}
+      <check if="any status is unrecognized">
+        <output>
+    ⚠️ **Unknown status detected:**
+    {{#each invalid_entries}}
 
 - `{{key}}`: "{{status}}" (not recognized)
   {{/each}}
@@ -122,8 +122,8 @@ Enter corrections (e.g., "1=in-progress, 2=backlog") or "skip" to continue witho
   {{/each}}
   {{/if}}
 
-    </output>
-    </step>
+      </output>
+      </step>
 
 <step n="5" goal="Offer actions">
   <ask>Pick an option:

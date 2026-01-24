@@ -142,7 +142,6 @@ export function Card({
 					</span>
 				))}
 			</div>
-
 		</article>
 	);
 }
@@ -219,7 +218,6 @@ export function LockedCard({
 						더 깊은 해석을 확인하려면 결제가 필요합니다.
 					</p>
 				</div>
-
 
 				{/* CTA 버튼 */}
 				{!isBlurred && onUnlock && (

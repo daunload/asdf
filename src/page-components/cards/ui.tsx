@@ -219,7 +219,9 @@ export function CardsPage() {
 								className={cn(
 									'absolute left-0 top-1/2 z-0 -translate-x-full -translate-y-1/2 transition-opacity duration-300',
 									'hidden md:block',
-									hasPrev ? 'opacity-50' : 'opacity-0 pointer-events-none',
+									hasPrev
+										? 'opacity-50'
+										: 'opacity-0 pointer-events-none',
 								)}
 								style={{ width: '280px' }}
 							>
@@ -285,7 +287,9 @@ export function CardsPage() {
 								className={cn(
 									'absolute right-0 top-1/2 z-0 translate-x-full -translate-y-1/2 transition-opacity duration-300',
 									'hidden md:block',
-									hasNext ? 'opacity-50' : 'opacity-0 pointer-events-none',
+									hasNext
+										? 'opacity-50'
+										: 'opacity-0 pointer-events-none',
 								)}
 								style={{ width: '280px' }}
 							>
@@ -433,7 +437,8 @@ export function CardsPage() {
 							</>
 						) : (
 							<div className="flex items-center justify-center text-sm text-gray-500">
-								카드를 해금하면 더 많은 기능을 사용할 수 있습니다
+								카드를 해금하면 더 많은 기능을 사용할 수
+								있습니다
 							</div>
 						)}
 					</div>

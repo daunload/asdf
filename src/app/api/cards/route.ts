@@ -96,7 +96,10 @@ export async function POST(request: NextRequest) {
 			console.error('지오코딩 오류:', error);
 			return NextResponse.json(
 				{
-					error: error instanceof Error ? error.message : '주소 변환 중 오류가 발생했습니다.',
+					error:
+						error instanceof Error
+							? error.message
+							: '주소 변환 중 오류가 발생했습니다.',
 					code: 'GEOCODING_ERROR',
 					retry: true,
 				},
@@ -113,7 +116,11 @@ export async function POST(request: NextRequest) {
 		// 출생차트 계산
 		let chartData;
 		try {
-			chartData = calculateChart(isoDateTime, coordinates.lat, coordinates.lon);
+			chartData = calculateChart(
+				isoDateTime,
+				coordinates.lat,
+				coordinates.lon,
+			);
 		} catch (error) {
 			console.error('차트 계산 오류:', error);
 			return NextResponse.json(
